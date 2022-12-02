@@ -1,5 +1,5 @@
 ﻿using API.Interfaces;
-using API.ViewModels.UserViewModels;
+using API.ViewModels.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,6 +48,18 @@ namespace API.Controllers
             }
 
             return Unauthorized(result.Item2);
+        }
+
+        [HttpPost("refresh-user")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenRequstViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _userService.VerifyAndGenerateTokenAsync(viewModel);
+            return Ok(result);
         }
     }
 }

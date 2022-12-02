@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace API.ViewModels.UserViewModels
+namespace API.ViewModels.Identity
 {
     public class RegisterUserViewModel
     {
@@ -14,5 +14,7 @@ namespace API.ViewModels.UserViewModels
         public string? PhoneNumber { get; set; }
         public string? UserName { get; set; }
         public string? Email { get; set; }
+        [Required]
+        public string? UserRole { get; set; }
     }
 }

@@ -1,8 +1,10 @@
-﻿using API.Validations;
-using API.ViewModels.UserViewModels;
+﻿using API.Identity;
+using API.Validations;
+using API.ViewModels.Identity;
 using Datalayer.Context;
 using Datalayer.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
@@ -54,6 +56,16 @@ namespace API.Interfaces
             var result = await _userManager.CreateAsync(user, viewModel.Password);
             if (result.Succeeded)
             {
+                switch(viewModel.UserRole)
+                {
+                    case UserRoles.SuperAdmin:
+                        await _userManager.AddToRoleAsync(user, UserRoles.SuperAdmin); break;
+                    case UserRoles.Admin:
+                        await _userManager.AddToRoleAsync(user, UserRoles.Admin); break;
+                    case UserRoles.Guest:
+                        await _userManager.AddToRoleAsync(user, UserRoles.Guest); break;
+                }
+
                 return (true, "User Created!");
             }
 
@@ -65,13 +77,13 @@ namespace API.Interfaces
             var userExist = _userManager.FindByPhoneNumber(viewModel.PhoneNumber);
             if (userExist != null && await _userManager.CheckPasswordAsync(userExist, viewModel.Password))
             {
-                return (true, JsonConvert.SerializeObject(await GeneraTokenAsync(userExist)));
+                return (true, JsonConvert.SerializeObject(await GeneraTokenAsync(userExist, null)));
             }
 
             return (false, "Login failed! Incorrect phone number or password!");
         }
 
-        private async Task<AuthResultViewModel> GeneraTokenAsync(User user)
+        private async Task<AuthResultViewModel> GeneraTokenAsync(User user, RefreshToken? refresh)
         {
             var authClaims = new List<Claim>()
             {
@@ -82,16 +94,33 @@ namespace API.Interfaces
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
+            var userRoles = await _userManager.GetRolesAsync(user);
+            foreach (var role in userRoles)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
             var authKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JwtSettings:securityKey"]));
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["JwtSettings:Issuer"],
                 audience: _configuration["JwtSettings:Audence"],
-                expires: DateTime.UtcNow.AddDays(1),
+                expires: DateTime.UtcNow.AddSeconds(10),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authKey, SecurityAlgorithms.HmacSha256));
 
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+            if (refresh != null)
+            {
+                var rToken = new AuthResultViewModel()
+                {
+                    Token = jwtToken,
+                    RefreshToken = refresh.Token,
+                    ExpiresAt = token.ValidTo,
+                };
+                return rToken;
+            }
 
             var refreshToken = new RefreshToken()
             {
@@ -114,6 +143,33 @@ namespace API.Interfaces
             };
 
             return response;
+        }
+
+        public async Task<AuthResultViewModel> VerifyAndGenerateTokenAsync(TokenRequstViewModel viewModel)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var storedToken = await _dbContext.RefreshTokens.FirstOrDefaultAsync(i => i.Token== viewModel.Token);
+
+            var user = await _userManager.FindByIdAsync(storedToken.UserId.ToString());
+
+            try
+            {
+                var tokenCheckResult = tokenHandler.ValidateToken(viewModel.Token, 
+                                                                  _validationParameters,
+                                                                  out var validatedToken);
+                return await GeneraTokenAsync(user, storedToken);
+            }
+            catch(SecurityTokenExpiredException)
+            {
+                if (DateTime.Parse(storedToken.DataExpire) >= DateTime.UtcNow)
+                {
+                    return await GeneraTokenAsync(user, storedToken);
+                }
+                else
+                {
+                    return await GeneraTokenAsync(user, null);
+                }
+            }
         }
     }
 }

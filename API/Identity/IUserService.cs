@@ -1,4 +1,4 @@
-﻿using API.ViewModels.UserViewModels;
+﻿using API.ViewModels.Identity;
 
 namespace API.Interfaces
 {
@@ -6,5 +6,6 @@ namespace API.Interfaces
     {
         Task<(bool, string)> CreateUserAsync(RegisterUserViewModel viewModel);
         Task<(bool, string)> LoginUserAsync(LoginUserViewModel viewModel);
+        Task<AuthResultViewModel> VerifyAndGenerateTokenAsync(TokenRequstViewModel viewModel);
     }
 }

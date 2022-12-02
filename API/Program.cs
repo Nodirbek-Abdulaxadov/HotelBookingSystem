@@ -1,3 +1,4 @@
+using API.Identity;
 using API.Interfaces;
 using Datalayer.Context;
 using Datalayer.Entities;
@@ -65,5 +66,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.SeedRolesToDatabase().Wait();
 
 app.Run();

@@ -1,4 +1,4 @@
-﻿namespace API.ViewModels.UserViewModels
+﻿namespace API.ViewModels.Identity
 {
     public class AuthResultViewModel
     {
