@@ -48,7 +48,7 @@ namespace API.Interfaces
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
-                UserName = viewModel.FirstName + viewModel.LastName,
+                UserName = "@" + viewModel.PhoneNumber,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 EmailConfirmed = true
             };
