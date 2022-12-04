@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Datalayer.Entities
+namespace Entities
 {
     [Table("Orders")]
     public class Order : BaseEntity

@@ -2,7 +2,7 @@
 using API.Validations;
 using API.ViewModels.Identity;
 using Datalayer.Context;
-using Datalayer.Entities;
+using Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

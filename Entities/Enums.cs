@@ -1,4 +1,4 @@
-﻿namespace Datalayer.Entities
+﻿namespace Entities
 {
     public enum OrderStatus
     {

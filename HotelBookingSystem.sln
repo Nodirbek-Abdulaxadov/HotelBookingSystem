@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datalayer", "Datalayer\Datalayer.csproj", "{42C172C8-EC56-4229-9E2C-FD2BBB06FF68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{336242FC-4501-447A-994C-2A0743091960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{336242FC-4501-447A-994C-2A0743091960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{407083AB-EDE9-4B51-8A7B-E1E9ADE7B873}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{336242FC-4501-447A-994C-2A0743091960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{336242FC-4501-447A-994C-2A0743091960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{336242FC-4501-447A-994C-2A0743091960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407083AB-EDE9-4B51-8A7B-E1E9ADE7B873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407083AB-EDE9-4B51-8A7B-E1E9ADE7B873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407083AB-EDE9-4B51-8A7B-E1E9ADE7B873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407083AB-EDE9-4B51-8A7B-E1E9ADE7B873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

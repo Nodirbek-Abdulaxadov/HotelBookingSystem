@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Datalayer.Entities
+namespace Entities
 {
     [Table("Rooms")]
     public class Room : BaseEntity
@@ -19,5 +19,7 @@ namespace Datalayer.Entities
         public string? Description { get; set; }
         [Required]
         public decimal Price { get; set; }
+        [Required]
+        public string? ImagePath { get; set; }
     }
 }

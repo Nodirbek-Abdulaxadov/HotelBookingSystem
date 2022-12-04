@@ -1,5 +1,5 @@
 ﻿using Datalayer.Context;
-using Datalayer.Entities;
+using Entities;
 using Datalayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

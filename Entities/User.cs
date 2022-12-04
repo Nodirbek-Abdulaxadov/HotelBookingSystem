@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace Datalayer.Entities
+namespace Entities
 {
-    public class User :  IdentityUser
+    public class User : IdentityUser
     {
         [Required]
         [StringLength(50)]

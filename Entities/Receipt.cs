@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Datalayer.Entities
+namespace Entities
 {
     public class Receipt : BaseEntity
     {
