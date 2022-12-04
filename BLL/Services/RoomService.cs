@@ -5,7 +5,7 @@ using Datalayer.Interfaces;
 
 namespace BLL.Services
 {
-    internal class RoomService : IRoomService
+    public class RoomService : IRoomService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IImageService _imageService;
@@ -29,6 +29,16 @@ namespace BLL.Services
         public async Task<IEnumerable<Room>> GetAllAsync()
             => await _unitOfWork.Rooms.GetAllAsync();
 
+        public async Task<Room?> GetByIdAsync(int roomId)
+            => await  _unitOfWork.Rooms.GetByIdAsync(roomId);
+
+        public async Task<Room?> GetByNumberAsync(int roomNumber)
+        {
+            var rooms = await _unitOfWork.Rooms.GetAllAsync();
+            var room = rooms.FirstOrDefault(r => r.Number == roomNumber);
+            return room;
+        }
+
         public async Task<IEnumerable<Room>> GetEmptyRoomsAsync()
         {
             var rooms = await _unitOfWork.Rooms.GetAllAsync();
@@ -38,6 +48,7 @@ namespace BLL.Services
         public async Task RemoveAsync(int roomId)
         {
             Room? room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+            await _imageService.RemoveImageAsync(room.ImagePath);
             await _unitOfWork.Rooms.RemoveAsync(room);
             await _unitOfWork.SaveAsync();
         }

@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BLL.DTOs.Rooms
 {
-    internal class UpdateRoomDto
+    public class UpdateRoomDto
     {
+        [Required]
         public int Id { get; set; }
         [Required]
         [StringLength(50)]

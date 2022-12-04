@@ -2,6 +2,7 @@
 {
     public enum OrderStatus
     {
+        Unknown,
         Waiting,
         Confirmed,
         Active,
@@ -10,6 +11,7 @@
 
     public enum RoomStatus
     {
+        Unknown,
         Busy,
         Empty,
         Ordered

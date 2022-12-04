@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BLL.Interfaces;
+using BLL.Services;
 
 namespace API.Configurations
 {
@@ -28,6 +30,9 @@ namespace API.Configurations
             builder.Services.AddTransient<IServiceInterface, ServiceRepository>();
             builder.Services.AddTransient<IReceiptInterface, ReceiptRepository>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+            builder.Services.AddTransient<IImageService, ImageService>();
+            builder.Services.AddTransient<IRoomService, RoomService>();
 
             //Add dbContext
             builder.Services.AddDbContext<HotelDbContext>(options =>
