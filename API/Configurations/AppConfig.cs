@@ -71,6 +71,17 @@ namespace API.Configurations
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = tokenParameters;
                 });
+
+            //Add cors
+            string CORSOpenPolicy = "OpenCORSPolicy";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(
+                  name: CORSOpenPolicy,
+                  builder => {
+                      builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+                  });
+            });
         }
 
         public static void AddMiddlewares(this WebApplication app)
@@ -82,6 +93,7 @@ namespace API.Configurations
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(CORSOpenPolicy);
 
             app.UseAuthentication();
             app.UseAuthorization();
