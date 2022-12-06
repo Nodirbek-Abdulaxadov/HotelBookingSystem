@@ -16,6 +16,7 @@ namespace API.Configurations
 {
     public static class AppConfig
     {
+        static readonly string CORSOpenPolicy = "OpenCORSPolicy";
         public static void AddServices(this WebApplicationBuilder builder)
         {
             //API Services
@@ -73,7 +74,6 @@ namespace API.Configurations
                 });
 
             //Add cors
-            string CORSOpenPolicy = "OpenCORSPolicy";
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(

@@ -18,7 +18,11 @@ namespace BLL.DTOs.Rooms
         [Required]
         public int Capacity { get; set; }
         [StringLength(2000)]
-        public string? Description { get; set; }
+        public string? DescriptionUz { get; set; }
+        [StringLength(2000)]
+        public string? DescriptionRu { get; set; }
+        [StringLength(2000)]
+        public string? DescriptionEn { get; set; }
         [Required]
         public decimal Price { get; set; }
         public string? ImagePath { get; set; }
@@ -30,7 +34,9 @@ namespace BLL.DTOs.Rooms
             {
                 Id = v.Id,
                 Number = v.Number,
-                Description = v.Description,
+                DescriptionUz = v.DescriptionUz,
+                DescriptionRu = v.DescriptionRu,
+                DescriptionEn = v.DescriptionEn,
                 Capacity = v.Capacity,
                 Price = v.Price,
                 Status = v.Status,

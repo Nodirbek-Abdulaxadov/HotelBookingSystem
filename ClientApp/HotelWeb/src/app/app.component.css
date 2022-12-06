@@ -1,0 +1,50 @@
+nav {
+    padding: 20px;
+}
+
+.nav-links:first-child{
+    margin: 0 10px 0 40px;
+}
+
+.nav-links:last-child a{
+    color: white !important;
+
+}
+
+.nav-links li{
+    margin: 0 10px;
+}
+
+.carousel-item {
+    height: 550px;
+}
+
+.hero-divs img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.hero-divs div {/* fallback for IE 8 and below */
+    background-color:rgba(0,0,0,0.7);
+    border-radius: 15px;
+}
+
+.hero-divs h1 {
+    opacity: 1 !important;
+    color: white !important;
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-buttons a {
+    width: 120px;
+}
+
+.auth-links button{
+    width: 100px;
+    margin: 0 5px;
+    color: white;
+}

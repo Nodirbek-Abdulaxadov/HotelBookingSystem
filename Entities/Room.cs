@@ -16,7 +16,11 @@ namespace Entities
         [Required]
         public int Capacity { get; set; }
         [StringLength(2000)]
-        public string? Description { get; set; }
+        public string? DescriptionUz { get; set; }
+        [StringLength(2000)]
+        public string? DescriptionRu { get; set; }
+        [StringLength(2000)]
+        public string? DescriptionEn { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required]
