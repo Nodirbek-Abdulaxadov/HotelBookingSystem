@@ -33,6 +33,7 @@ namespace API.Configurations
 
             builder.Services.AddTransient<IImageService, ImageService>();
             builder.Services.AddTransient<IRoomService, RoomService>();
+            builder.Services.AddTransient<IOrderService, OrderService>();
 
             //Add dbContext
             builder.Services.AddDbContext<HotelDbContext>(options =>
