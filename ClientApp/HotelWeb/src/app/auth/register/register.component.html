@@ -1,50 +1,94 @@
-<div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="exampleModalLabel">Create new account</h1>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3 div-space">
-          <div>
-            <label for="firstnameInput" class="form-label">First Name</label>
-            <input type="text" class="form-control" placeholder="Enter your first name" id="firstnameInput" aria-describedby="firstnameHelp">
-            <div id="firstnameHelp" class="form-text text-danger"></div>
-          </div>
-          <div>
-            <label for="lastnameInput" class="form-label">Last Name</label>
-            <input type="text" class="form-control" placeholder="Enter your last name" id="lastnameInput" aria-describedby="firstnameHelp">
-            <div id="lastnameHelp" class="form-text text-danger"></div>
-          </div>
-        </div>
-        <div class="mb-3 div-space">
-          <div>
-            <label for="phoneInput" class="form-label">Phone number</label>
-            <input type="tel" class="form-control" placeholder="Enter your phone number" id="phoneInput" aria-describedby="phoneHelp">
-            <div id="phoneHelp" class="form-text text-danger"></div>
-          </div>
-          <div>
-            <label for="exampleInputEmail1" class="form-label">Email address <small class="text-success">optional</small></label>
-            <input type="email" class="form-control" placeholder="Enter your email address" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text text-danger"></div>
-          </div>
-        </div>
-        <div class="mb-3 div-space">
-          <div>
-            <label for="passwordInput" class="form-label">Password</label>
-            <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" aria-describedby="passwordHelp">
-            <div id="passwordhelp" class="form-text"></div>
-          </div>
-          <div >
-            <label for="confirmInput" class="form-label">Confirm password</label>
-            <input type="password" class="form-control" id="confirmInput" placeholder="Confirm password" aria-describedby="confirmHelp">
-            <div id="confirmHelp" class="form-text"></div>
-          </div>
-        </div>
-        <div class="my-3 d-flex justify-content-center">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Register</button> <br>
-        </div>
-        <a class="text-blue" typ e="button" data-bs-toggle="modal" data-bs-target="#login">Log in</a>
-      </form>
-    </div>
+<div class="container asosiy">
+  <div class="login-header">
+    <h2>Create a new account</h2>
+    <hr class="my-4" />
   </div>
+  <div>
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your first name"
+          id="firstname"
+          formControlName="firstName"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your last name"
+          id="lastname"
+          formControlName="lastName"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="phoneInput" class="form-label">Phone number</label>
+        <input
+          type="tel"
+          class="form-control"
+          minlength="7"
+          placeholder="Enter your phone number"
+          id="phoneInput"
+          formControlName="phoneNumber"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter your email address"
+          id="email"
+          formControlName="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          minlength="8"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          required
+        />
+        <div>
+          <div *ngIf="password.errors?.['pattern']" class="text-danger">
+            invalid password
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="cpassword" class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          minlength="8"
+          id="cpassword"
+          formControlName="confirmPassword"
+          placeholder="Re-enter your password"
+          required
+        />
+        <div>
+          <div *ngIf="confirmPassword.hasError('matching')" class="text-danger">
+            Password did not match!
+          </div>
+        </div>
+      </div>
+      <div class="my-3 d-flex justify-content-center links">
+        <a class="btn btn-secondary" routerLink="">Cancel</a>
+        <button type="submit" class="btn btn-success">Submit</button> <br />
+      </div>
+      <a class="text-blue" routerLink="/login">Log in exciting acount</a>
+    </form>
+  </div>
+</div>
