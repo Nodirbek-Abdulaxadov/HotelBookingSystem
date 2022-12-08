@@ -48,7 +48,7 @@ namespace API.Interfaces
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
-                UserName = "@" + viewModel.PhoneNumber,
+                UserName = string.Concat(viewModel.FirstName, viewModel.LastName),
                 SecurityStamp = Guid.NewGuid().ToString(),
                 EmailConfirmed = true
             };
@@ -56,7 +56,7 @@ namespace API.Interfaces
             var result = await _userManager.CreateAsync(user, viewModel.Password);
             if (result.Succeeded)
             {
-                switch(viewModel.UserRole)
+                switch (viewModel.UserRole)
                 {
                     case UserRoles.SuperAdmin:
                         await _userManager.AddToRoleAsync(user, UserRoles.SuperAdmin); break;
@@ -115,6 +115,7 @@ namespace API.Interfaces
             {
                 var rToken = new AuthResultViewModel()
                 {
+                    UserName = user.UserName,
                     Token = jwtToken,
                     RefreshToken = refresh.Token,
                     ExpiresAt = token.ValidTo,
@@ -137,6 +138,7 @@ namespace API.Interfaces
 
             var response = new AuthResultViewModel()
             {
+                UserName = user.UserName,
                 Token = jwtToken,
                 RefreshToken = refreshToken.Token,
                 ExpiresAt = token.ValidTo,
@@ -148,18 +150,18 @@ namespace API.Interfaces
         public async Task<AuthResultViewModel> VerifyAndGenerateTokenAsync(TokenRequstViewModel viewModel)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var storedToken = await _dbContext.RefreshTokens.FirstOrDefaultAsync(i => i.Token== viewModel.Token);
+            var storedToken = await _dbContext.RefreshTokens.FirstOrDefaultAsync(i => i.Token == viewModel.Token);
 
             var user = await _userManager.FindByIdAsync(storedToken.UserId.ToString());
 
             try
             {
-                var tokenCheckResult = tokenHandler.ValidateToken(viewModel.Token, 
+                var tokenCheckResult = tokenHandler.ValidateToken(viewModel.Token,
                                                                   _validationParameters,
                                                                   out var validatedToken);
                 return await GeneraTokenAsync(user, storedToken);
             }
-            catch(SecurityTokenExpiredException)
+            catch (SecurityTokenExpiredException)
             {
                 if (DateTime.Parse(storedToken.DataExpire) >= DateTime.UtcNow)
                 {

@@ -1,0 +1,10 @@
+.div1 img{
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    padding: 5px;
+}
+
+.div2 {
+    padding: 0 30px;
+}

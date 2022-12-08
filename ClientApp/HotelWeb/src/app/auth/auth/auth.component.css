@@ -1,0 +1,12 @@
+.username img {
+    height: 40px;
+}
+
+.username {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-menu a:hover {
+    cursor: pointer;
+}

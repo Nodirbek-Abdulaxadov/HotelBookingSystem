@@ -1,0 +1,28 @@
+<div class="container asosiy">
+    <div class="login-header">
+      <h2>Log in your account</h2>
+      <hr class="my-4">
+    </div>
+    <div>
+      <form [formGroup]="loginForm" (submit)="onSubmit()">
+        <div class="mb-3">
+          <label for="phoneInput" class="form-label">Phone number</label>
+          <input type="tel" class="form-control" minlength="7" placeholder="Enter your phone number" id="phoneInput" formControlName="phoneNumber" required>
+          <div id="phoneText" class="form-text text-danger"></div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" minlength="8" id="password" formControlName="password" placeholder="Enter your password" required>
+          <div>
+            <div *ngIf="password.errors?.['pattern']" class="text-danger"> invalid password </div>
+          </div>
+        </div>
+        <div class="form-text text-warning">Please fill all fields with correct data!</div>
+        <div class="my-3 d-flex justify-content-center links">
+          <a class="btn btn-secondary" routerLink="">Cancel</a>
+          <button type="submit" class="btn btn-success" >Login</button> <br>
+        </div>
+        <a class="text-blue" routerLink="/register">Register as new user</a>
+      </form>
+    </div>
+  </div>

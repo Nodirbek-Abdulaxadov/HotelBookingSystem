@@ -1,6 +1,10 @@
 ﻿using API.Interfaces;
 using API.ViewModels.Identity;
+using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -37,7 +41,7 @@ namespace API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest("yooooooq");
             }
 
             var result = await _userService.LoginUserAsync(viewModel);

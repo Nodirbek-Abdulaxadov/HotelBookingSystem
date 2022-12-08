@@ -1,0 +1,50 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Create new account</h1>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3 div-space">
+          <div>
+            <label for="firstnameInput" class="form-label">First Name</label>
+            <input type="text" class="form-control" placeholder="Enter your first name" id="firstnameInput" aria-describedby="firstnameHelp">
+            <div id="firstnameHelp" class="form-text text-danger"></div>
+          </div>
+          <div>
+            <label for="lastnameInput" class="form-label">Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter your last name" id="lastnameInput" aria-describedby="firstnameHelp">
+            <div id="lastnameHelp" class="form-text text-danger"></div>
+          </div>
+        </div>
+        <div class="mb-3 div-space">
+          <div>
+            <label for="phoneInput" class="form-label">Phone number</label>
+            <input type="tel" class="form-control" placeholder="Enter your phone number" id="phoneInput" aria-describedby="phoneHelp">
+            <div id="phoneHelp" class="form-text text-danger"></div>
+          </div>
+          <div>
+            <label for="exampleInputEmail1" class="form-label">Email address <small class="text-success">optional</small></label>
+            <input type="email" class="form-control" placeholder="Enter your email address" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text text-danger"></div>
+          </div>
+        </div>
+        <div class="mb-3 div-space">
+          <div>
+            <label for="passwordInput" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" aria-describedby="passwordHelp">
+            <div id="passwordhelp" class="form-text"></div>
+          </div>
+          <div >
+            <label for="confirmInput" class="form-label">Confirm password</label>
+            <input type="password" class="form-control" id="confirmInput" placeholder="Confirm password" aria-describedby="confirmHelp">
+            <div id="confirmHelp" class="form-text"></div>
+          </div>
+        </div>
+        <div class="my-3 d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Register</button> <br>
+        </div>
+        <a class="text-blue" typ e="button" data-bs-toggle="modal" data-bs-target="#login">Log in</a>
+      </form>
+    </div>
+  </div>

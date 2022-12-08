@@ -12,7 +12,6 @@ namespace API.ViewModels.Identity
         public string? Password { get; set; }
         [Required]
         public string? PhoneNumber { get; set; }
-        public string? UserName { get; set; }
         public string? Email { get; set; }
         [Required]
         public string? UserRole { get; set; }

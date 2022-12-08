@@ -1,0 +1,21 @@
+nav {
+    padding: 20px;
+}
+
+.nav-links:first-child{
+    margin: 0 10px 0 40px;
+}
+
+.nav-links:last-child a{
+    color: white !important;
+
+}
+
+.nav-links li{
+    margin: 0 10px;
+}
+
+.form-select {
+    margin-right: 20px;
+    width: 70px !important;
+}

@@ -1,4 +1,6 @@
 ﻿using API.ViewModels.Identity;
+using Entities;
+using System.Security.Claims;
 
 namespace API.Interfaces
 {
