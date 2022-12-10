@@ -90,6 +90,12 @@ namespace API.Controllers
         [HttpDelete("{roomId}")]
         public async Task<IActionResult> Delete(int roomId)
         {
+            var room = await _roomService.GetByIdAsync(roomId);
+            if (room == null) 
+            {
+                return NotFound();
+            }
+
             await _roomService.RemoveAsync(roomId);
             return Ok();
         }

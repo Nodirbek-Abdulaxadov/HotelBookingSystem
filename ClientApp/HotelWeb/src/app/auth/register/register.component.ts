@@ -35,7 +35,7 @@ export class RegisterComponent {
   public registerForm = this.formBuilder.group({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    phoneNumber: new FormControl(''),
+    phoneNumber: new FormControl('', Validators.required),
     email: new FormControl(''),
     password: this.password,
     confirmPassword: this.confirmPassword,

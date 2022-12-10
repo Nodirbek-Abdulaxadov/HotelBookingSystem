@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'room', component: RoomComponent},
+  {path: 'rooms/:roomId', component: RoomComponent},
   {path: 'rooms', component: RoomsComponent}
 ];
 

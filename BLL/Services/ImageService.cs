@@ -42,7 +42,7 @@ namespace BLL.Services
                 fileStream.Close();
             }
 
-            return Task.FromResult("images/" + uniqueName);
+            return Task.FromResult("https://localhost:44363/images/" + uniqueName);
         }
     }
 }

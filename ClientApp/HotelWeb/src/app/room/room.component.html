@@ -1,14 +1,14 @@
 <div class="container">
     <a class="btn btn-primary mt-3" routerLink="/">Back home</a>
-    <div class="row my-3">
+    <div *ngIf="room"  class="row my-3">
         <div class="col-md-6 div1">
-            <img src="assets/images/2.jpg" alt="">
+            <img [src]="room.imagePath" alt="">
         </div>
         <div class="col-md-6 div2">
             <div>
-                <h3 class="text-center">Standart</h3>
-                <h4>Price: $ 150</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A laudantium deserunt vel porro dicta quidem praesentium doloribus delectus nihil rem? Quisquam labore itaque quos aliquid aperiam dolorum neque fuga, impedit maiores perferendis ut dignissimos iure quis debitis. Corrupti odio vitae commodi laudantium maxime suscipit aspernatur voluptates quibusdam, atque consectetur eos sint aperiam eaque provident ab ipsa, nobis mollitia nihil, eum eveniet delectus praesentium itaque vel tenetur. Tenetur officia aliquid modi provident dolorum in. Totam similique, voluptatem debitis mollitia quis eveniet quisquam, ipsa nostrum eum voluptatibus perspiciatis dolore officiis nam error corrupti reprehenderit eius! Tempora amet aliquid deleniti dolorem sunt nihil!</p>
+                <h3 class="text-center">{{room.type}}</h3>
+                <h4>Price: $ {{room.price}}</h4>
+                <p>{{room.descriptionEn}}</p>
             </div>
             <div class="d-flex justify-content-center">
                 <a class="btn btn-warning">Book now</a>

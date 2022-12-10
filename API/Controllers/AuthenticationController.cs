@@ -26,7 +26,7 @@ namespace API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(JsonConvert.SerializeObject(ModelState.Values));
             }
             viewModel.UserRole = UserRoles.Guest;
             var result = await _userService.CreateUserAsync(viewModel);
@@ -43,7 +43,7 @@ namespace API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("yooooooq");
+                return BadRequest(ModelState);
             }
 
             var result = await _userService.LoginUserAsync(viewModel);

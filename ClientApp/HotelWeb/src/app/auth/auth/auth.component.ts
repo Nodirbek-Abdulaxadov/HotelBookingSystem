@@ -10,15 +10,15 @@ export class AuthComponent {
     constructor(private router: Router){}
 
   IsLoggedIn(): boolean {
-    var username = localStorage.getItem('username')
-    if (username) {
+    var fullName = localStorage.getItem('fullname')
+    if (fullName) {
       return true;
     }
     return false;
   }
   
   getUserName(): string {
-    return localStorage.getItem('username')??"Error!";
+    return localStorage.getItem('fullname')??"Error!";
   }
 
   logout(): void {

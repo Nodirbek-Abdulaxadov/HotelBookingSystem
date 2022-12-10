@@ -26,10 +26,35 @@ export class RegisterService {
       .post(this.baseUrl + '/register-guest', user)
       .subscribe({
         next: (data) => {
+          alert('Successfully created your account!\n Please Login')
           this.router.navigate(['/login']);
         },
         error: (error) => {
-          console.error('There was an error!', error);
+          const el = document.getElementById('error')!;
+          console.log(error);
+            switch(error.status) {
+              case 401: el.innerHTML = error.error; break;
+              case 400: {
+                var arr = error.error.errors;
+                el.innerHTML = "";
+                if (arr['FirstName']) {
+                  el.innerHTML += arr['FirstName'] + '<br/>';
+                }
+                if (arr['LastName']) {
+                  el.innerHTML += arr['LastName'] + '<br/>';
+                }
+                if (arr['PhoneNumber']) {
+                  el.innerHTML += arr['PhoneNumber'] + '<br/>';
+                }
+                if (arr['Password']) {
+                  el.innerHTML += arr['Password'] + '<br/>';
+                }
+                if (arr['ConfirmPassword']) {
+                  el.innerHTML += arr['ConfirmPassword'] + '<br/>';
+                }
+              }break;
+              case 0: el.innerHTML = "Connection lost with server!"; break;
+            }
         },
       });
   }

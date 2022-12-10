@@ -48,7 +48,7 @@ namespace API.Interfaces
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
-                UserName = string.Concat(viewModel.FirstName, viewModel.LastName),
+                UserName = string.Concat('@', viewModel.PhoneNumber),
                 SecurityStamp = Guid.NewGuid().ToString(),
                 EmailConfirmed = true
             };
@@ -115,7 +115,8 @@ namespace API.Interfaces
             {
                 var rToken = new AuthResultViewModel()
                 {
-                    UserName = user.UserName,
+                    FullName = user.FirstName + " " + user.LastName,
+                    PhoneNumber = user.PhoneNumber,
                     Token = jwtToken,
                     RefreshToken = refresh.Token,
                     ExpiresAt = token.ValidTo,
@@ -138,7 +139,8 @@ namespace API.Interfaces
 
             var response = new AuthResultViewModel()
             {
-                UserName = user.UserName,
+                FullName = user.FirstName + " " + user.LastName,
+                PhoneNumber = user.PhoneNumber,
                 Token = jwtToken,
                 RefreshToken = refreshToken.Token,
                 ExpiresAt = token.ValidTo,

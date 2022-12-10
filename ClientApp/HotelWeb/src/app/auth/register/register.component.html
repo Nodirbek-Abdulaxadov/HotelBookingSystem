@@ -6,7 +6,7 @@
   <div>
     <form [formGroup]="registerForm" (submit)="onSubmit()">
       <div class="mb-3">
-        <label for="firstname" class="form-label">First Name</label>
+        <label for="firstname" class="form-label">First Name <span class="text-danger"> *</span></label>
         <input
           type="text"
           class="form-control"
@@ -17,7 +17,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="lastname" class="form-label">Last Name</label>
+        <label for="lastname" class="form-label">Last Name<span class="text-danger"> *</span></label>
         <input
           type="text"
           class="form-control"
@@ -28,7 +28,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="phoneInput" class="form-label">Phone number</label>
+        <label for="phoneInput" class="form-label">Phone number<span class="text-danger"> *</span></label>
         <input
           type="tel"
           class="form-control"
@@ -40,18 +40,17 @@
         />
       </div>
       <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
+        <label for="email" class="form-label">Email<span class="text-success"> [optional]</span></label>
         <input
           type="email"
           class="form-control"
           placeholder="Enter your email address"
           id="email"
           formControlName="email"
-          required
         />
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Password<span class="text-danger"> *</span></label>
         <input
           type="password"
           class="form-control"
@@ -61,14 +60,12 @@
           placeholder="Enter your password"
           required
         />
-        <div>
-          <div *ngIf="password.errors?.['pattern']" class="text-danger">
-            invalid password
-          </div>
+        <div *ngIf="password.errors?.['pattern']" class="text-danger">
+          invalid password
         </div>
       </div>
       <div class="mb-3">
-        <label for="cpassword" class="form-label">Confirm Password</label>
+        <label for="cpassword" class="form-label">Confirm Password<span class="text-danger"> *</span></label>
         <input
           type="password"
           class="form-control"
@@ -84,9 +81,10 @@
           </div>
         </div>
       </div>
+      <p id="error" class="text-danger"></p>
       <div class="my-3 d-flex justify-content-center links">
         <a class="btn btn-secondary" routerLink="">Cancel</a>
-        <button type="submit" class="btn btn-success">Submit</button> <br />
+        <button [disabled]="!registerForm.valid"  type="submit" class="btn btn-success">Submit</button> <br />
       </div>
       <a class="text-blue" routerLink="/login">Log in exciting acount</a>
     </form>
