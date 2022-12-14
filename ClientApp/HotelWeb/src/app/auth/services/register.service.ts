@@ -53,7 +53,7 @@ export class RegisterService {
                   el.innerHTML += arr['ConfirmPassword'] + '<br/>';
                 }
               }break;
-              case 0: el.innerHTML = "Connection lost with server!"; break;
+              case 0: this.router.navigate(['/server-error']); break;
             }
         },
       });

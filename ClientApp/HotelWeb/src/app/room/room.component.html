@@ -1,5 +1,5 @@
 <div class="container">
-    <a class="btn btn-primary mt-3" routerLink="/">Back home</a>
+    <a class="btn btn-primary mt-3" routerLink="/">{{'buttons.back' | translate}}</a>
     <div *ngIf="room"  class="row my-3">
         <div class="col-md-6 div1">
             <img [src]="room.imagePath" alt="">
@@ -7,11 +7,11 @@
         <div class="col-md-6 div2">
             <div>
                 <h3 class="text-center">{{room.type}}</h3>
-                <h4>Price: $ {{room.price}}</h4>
+                <h4>{{'price' | translate}}: $ {{room.price}}</h4>
                 <p>{{room.descriptionEn}}</p>
             </div>
             <div class="d-flex justify-content-center">
-                <a class="btn btn-warning">Book now</a>
+                <a [routerLink]="['/new-order', room.id]" class="btn btn-warning">{{'buttons.book' | translate}}</a>
             </div>
         </div>
     </div>

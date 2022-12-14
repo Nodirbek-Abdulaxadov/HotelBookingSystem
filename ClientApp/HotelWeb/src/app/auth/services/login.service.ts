@@ -15,13 +15,11 @@ export class LoginService {
   loginUser(form: any): void {
       this.httpClient.post(this.baseUrl+'/login-user', form, {withCredentials: true}).subscribe(
        { next: data => {
-            var fullname = Object.entries(data)[0][1];
-            var phoneNumber = Object.entries(data)[1][1];
-            localStorage.setItem('fullname', fullname.toString());
-            localStorage.setItem('phoneNumber', phoneNumber.toString());
-            const natification = document.getElementById('natification')!;
-            natification.style.display = 'block';
+            localStorage.setItem("data", JSON.stringify(data));
+            // const natification = document.getElementById('natification')!;
+            // natification.style.display = 'block';
             //setTimeout(() => '', 3000);
+            alert('Login successfully!');
             this.router.navigate(['/']);
         },
         error: error => {
@@ -31,15 +29,15 @@ export class LoginService {
               case 400: {
                 var arr = error.error.errors;
                 el.innerHTML = "";
-                if (arr['PhoneNumber']) {
-                  el.innerHTML += arr['PhoneNumber'] + '<br/>';
+                if (arr['Email']) {
+                  el.innerHTML += arr['Email'] + '<br/>';
                 }
                 if (arr['Password']) {
                   el.innerHTML += arr['Password'] + '<br/>';
                 }
               }break;
               case 401: el.innerHTML = error.error; break;
-              case 0: el.innerHTML = "Connection lost with server!"; break;
+              case 0: this.router.navigate(['/server-error']); break;
             }
         }}
     );

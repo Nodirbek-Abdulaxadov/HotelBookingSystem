@@ -11,6 +11,10 @@ export class LoginComponent {
   constructor(private loginService: LoginService,
               private formBuilder: FormBuilder){}
 
+  email = new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]);
   password = new FormControl('', [
     Validators.required,
     Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%.#*?&])[A-Za-z\d$@.#$!%*?&].{7,}'),
@@ -19,7 +23,7 @@ export class LoginComponent {
   ]);
 
   public loginForm = this.formBuilder.group({
-    phoneNumber: new FormControl(''),
+    email: this.email,
     password: this.password
   });
 

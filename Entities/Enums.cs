@@ -12,8 +12,8 @@
     public enum RoomStatus
     {
         Unknown,
-        Busy,
         Empty,
+        Busy,
         Ordered
     }
 }

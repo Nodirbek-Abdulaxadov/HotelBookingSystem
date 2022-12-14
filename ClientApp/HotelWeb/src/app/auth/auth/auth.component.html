@@ -1,6 +1,6 @@
 <div *ngIf="!IsLoggedIn()" class="auth-links">
-  <a routerLink="/login" class="btn btn-outline-success">Login</a>
-  <a routerLink="/register" class="btn btn-outline-success">Register</a>
+  <a routerLink="/login" class="btn btn-outline-success">{{'auth.login' | translate}}</a>
+  <a routerLink="/register" class="btn btn-outline-success">{{'auth.register' | translate}}</a>
 </div>
 
 <div *ngIf="IsLoggedIn()">
@@ -16,9 +16,9 @@
     </a>
 
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item">Profile</a></li>
-      <li class="dropdown-item">
-        <a style="cursor: pointer" (click)="logout()">Log out</a>
+      <li><a class="dropdown-item">{{'auth.profile' | translate}}</a></li>
+      <li class="dropdown-item" (click)="logout()">
+        <a style="cursor: pointer">{{'auth.logout' | translate}}</a>
       </li>
     </ul>
   </div>

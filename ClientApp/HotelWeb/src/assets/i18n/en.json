@@ -1,0 +1,84 @@
+{
+    "nav": {
+        "home": "Home",
+        "rooms": "Rooms",
+        "about": "About",
+        "contact": "Contact"
+    },
+
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "profile": "Profile",
+        "logout": "Log out"
+    },
+
+    "slider": {
+        "title1": "Hotel Booking System",
+        "title2": "Some representative placeholder content for the first slide."
+    },
+
+    "titles": {
+        "explore": "Explore rooms",
+        "order": "Create new order",
+        "login": "Log in your account",
+        "register": "Create a new account"
+    },
+
+    "password": {
+        "error": "Check a password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.",
+        "confirm": "Passwords do not match!"
+    },
+
+    "email": "Invalid email address",
+
+    "login": {
+        "email": "Email address",
+        "emailp": "Enter your email address",
+        "password": "Password",
+        "passwordp": "Enter your password",
+        "register": "Register as new user"
+    },
+
+    "register": {
+        "fname": "First Name",
+        "fnamep": "Enter your first name",
+        "lname": "Last Name",
+        "lnamep": "Enter your last name",
+        "phone": "Phone Number",
+        "phonep": "Enter your phone number",
+        "email": "Email address",
+        "emailp":"Enter your email address",
+        "password": "Password",
+        "passwordp":"Enter your password",
+        "cpassword": "Confirm Password",
+        "cpasswordp": "Confirm your password",
+        "login": "Log in existing acount"
+    },
+
+    "price": "Price",
+
+    "buttons": {
+        "more": "More details",
+        "book": "Book now",
+        "back": "Back home",
+        "cancel": "Cancel",
+        "submit": "Submit"
+    },
+
+    "order": {
+        "title": "Create new order",
+        "start": "Start Date",
+        "end": "End Date",
+        "adults": "Number of Adults",
+        "children": "Number of Children",
+        "add": "Additonal",
+        "price": "Total Price",
+        "checking": "Checking availability..."
+    },
+
+    "pages": {
+        "server": "Internal server error!",
+        "notfound": "Page Not Found"
+    }
+}

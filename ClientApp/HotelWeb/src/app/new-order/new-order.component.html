@@ -1,0 +1,53 @@
+<div class="container asosiy">
+  <div class="login-header">
+    <h2>{{ "order.title" | translate }}</h2>
+    <hr class="my-4" />
+  </div>
+  <div>
+    <form [formGroup]="orderForm" (submit)="onSubmit()">
+      <div class="mb-3 row">
+        <div class="col-md-6">
+          <label for="startDate" class="form-label">{{ "order.start" | translate }}<span class="text-danger"> *</span></label>
+          <input type="date" class="form-control" id="startDate" formControlName="startDate" required />
+        </div>
+        <div class="col-md-6">
+          <label for="endDate" class="form-label">{{ "order.end" | translate }}<span class="text-danger"> *</span></label>
+          <input type="date" class="form-control" id="endDate" formControlName="endDate" required />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-md-6">
+          <label for="adults" class="form-label">{{'order.adults' | translate}}
+            <span class="text-danger"> *</span></label>
+          <input type="number" class="form-control" id="adults" formControlName="numberOfAdults" required />
+        </div>
+        <div class="col-md-6">
+          <label for="children" class="form-label">{{'order.children' | translate}}</label>
+          <input type="number" class="form-control" id="children" formControlName="numberOfChildren" />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="add" class="form-label"> {{'order.add' | translate}} </label>
+        <textarea type="text" class="form-control" id="add" formControlName="additional" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">{{'order.price' | translate}}</label>
+        <input type="number" class="form-control" id="price" value="{{ price }}" formControlName="totalPrice" />
+      </div>
+      <div id="waiting" style="display: none">
+        <button class="btn btn-success w-100 ms-0" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          {{'order.checking' | translate}}
+        </button>
+      </div>
+      <p id="error" style="display: none" class="btn btn-danger w-100 ms-0"></p>
+      <div class="mt-5 d-flex justify-content-center links">
+        <a class="btn btn-secondary" routerLink="">{{'buttons.cancel' | translate}}</a>
+        <button [disabled]="!orderForm.valid" type="submit" class="btn btn-success">
+          {{'buttons.submit' | translate}}
+        </button>
+        <br />
+      </div>
+    </form>
+  </div>
+</div>

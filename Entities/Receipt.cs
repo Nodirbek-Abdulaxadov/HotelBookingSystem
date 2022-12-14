@@ -12,11 +12,11 @@ namespace Entities
 
         //FK
         [Required]
-        public int GuestId { get; set; }
+        public string GuestId { get; set; }
         [Required]
         public int OrdeId { get; set; }
         [Required]
-        public int AdminId { get; set; }
+        public string AdminId { get; set; }
 
     }
 }

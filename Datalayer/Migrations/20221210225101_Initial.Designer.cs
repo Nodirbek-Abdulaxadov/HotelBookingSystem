@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Datalayer.Migrations
 {
     [DbContext(typeof(HotelDbContext))]
-    [Migration("20221206181121_multilingual")]
-    partial class multilingual
+    [Migration("20221210225101_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,8 +49,9 @@ namespace Datalayer.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<int>("GuestId")
-                        .HasColumnType("integer");
+                    b.Property<string>("GuestId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("NumberOfAdults")
                         .HasColumnType("integer");
@@ -85,16 +86,18 @@ namespace Datalayer.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("integer");
+                    b.Property<string>("AdminId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("CheckoutDate")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<int>("GuestId")
-                        .HasColumnType("integer");
+                    b.Property<string>("GuestId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("OrdeId")
                         .HasColumnType("integer");

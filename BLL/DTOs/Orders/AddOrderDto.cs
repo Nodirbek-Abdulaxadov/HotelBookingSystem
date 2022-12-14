@@ -16,16 +16,12 @@ namespace BLL.DTOs.Orders
         public int NumberOfChildren { get; set; }
         [StringLength(200)]
         public string? Additional { get; set; }
-        [Required]
         public decimal TotalPrice { get; set; }
-        [StringLength(100)]
-        public string? ConfirmedDate { get; set; }
 
         //FK
         [Required]
         public int RoomId { get; set; }
-        [Required]
-        public int GuestId { get; set; }
+        public string GuestId { get; set; }
 
         public static explicit operator Order(AddOrderDto v)
             => new Order()

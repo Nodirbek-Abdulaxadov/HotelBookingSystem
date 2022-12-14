@@ -67,7 +67,7 @@ namespace Datalayer.Migrations
                     ConfirmedDate = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     OrderStatus = table.Column<int>(type: "integer", nullable: false),
                     RoomId = table.Column<int>(type: "integer", nullable: false),
-                    GuestId = table.Column<int>(type: "integer", nullable: false)
+                    GuestId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,9 +82,9 @@ namespace Datalayer.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CheckoutDate = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     TotalPrice = table.Column<decimal>(type: "numeric", nullable: false),
-                    GuestId = table.Column<int>(type: "integer", nullable: false),
+                    GuestId = table.Column<string>(type: "text", nullable: false),
                     OrdeId = table.Column<int>(type: "integer", nullable: false),
-                    AdminId = table.Column<int>(type: "integer", nullable: false)
+                    AdminId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -119,7 +119,9 @@ namespace Datalayer.Migrations
                     Number = table.Column<int>(type: "integer", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Capacity = table.Column<int>(type: "integer", nullable: false),
-                    Description = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
+                    DescriptionUz = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
+                    DescriptionRu = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
+                    DescriptionEn = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     ImagePath = table.Column<string>(type: "text", nullable: false)
                 },

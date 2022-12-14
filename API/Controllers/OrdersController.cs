@@ -2,6 +2,7 @@
 using BLL.Interfaces;
 using Entities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -11,10 +12,16 @@ namespace API.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private readonly UserManager<User> _userManager;
+        private readonly IRoomService _roomService;
 
-        public OrdersController(IOrderService orderService)
+        public OrdersController(IOrderService orderService,
+                               UserManager<User> userManager,
+                               IRoomService roomService)
         {
             _orderService = orderService;
+            _userManager = userManager;
+            _roomService = roomService;
         }
 
         [HttpGet]
@@ -57,6 +64,32 @@ namespace API.Controllers
             return Ok(orders);
         }
 
+        [HttpGet("check")]
+        public async Task<IActionResult> Check(string email, int roomId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest("User not found!");
+            }
+
+            var room = await _roomService.GetByIdAsync(roomId);
+            if (room == null)
+            {
+                return BadRequest("Room not found!");
+            }
+
+            var res = await _roomService.CheckAsync(room.Type, room.Price);
+            Thread.Sleep(500);
+            
+            return Ok(res);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCompletedOrders(int id)
         {
@@ -78,13 +111,21 @@ namespace API.Controllers
             return Ok(order);
         }
 
-        [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] AddOrderDto orderDto)
+        [HttpPost("create/{email}")]
+        public async Task<IActionResult> Create(string email, [FromBody] AddOrderDto orderDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest("User not found!");
+            }
+
+            orderDto.GuestId = user.Id;
 
             var model = await _orderService.CreateOrderAsync(orderDto);
 

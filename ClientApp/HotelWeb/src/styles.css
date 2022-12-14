@@ -23,7 +23,8 @@
 }
 
 .card-buttons a {
-    width: 120px;
+    font-size: 15px;
+    padding: 10px;
 }
 
 .auth-links button{

@@ -27,6 +27,11 @@ export class RegisterComponent {
     this.matchValidator('confirmPassword', true),
   ]);
 
+  email = new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]);
+
   confirmPassword = new FormControl('', [
     Validators.required,
     this.matchValidator('password'),
@@ -36,7 +41,7 @@ export class RegisterComponent {
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     phoneNumber: new FormControl('', Validators.required),
-    email: new FormControl(''),
+    email: this.email,
     password: this.password,
     confirmPassword: this.confirmPassword,
     userRole: '',

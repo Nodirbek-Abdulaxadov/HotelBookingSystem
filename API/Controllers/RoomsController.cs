@@ -1,5 +1,7 @@
 ﻿using BLL.DTOs.Rooms;
 using BLL.Interfaces;
+using Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers

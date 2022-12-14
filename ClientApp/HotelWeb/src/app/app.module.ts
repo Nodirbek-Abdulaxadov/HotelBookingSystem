@@ -13,6 +13,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { RoomComponent } from './room/room.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { NewOrderComponent } from './new-order/new-order.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ServerErrorComponent } from './server-error/server-error.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -24,14 +33,24 @@ import { RoomsComponent } from './rooms/rooms.component';
     FooterComponent,
     MainComponent,
     RoomComponent,
-    RoomsComponent
+    RoomsComponent,
+    NewOrderComponent,
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule, 
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

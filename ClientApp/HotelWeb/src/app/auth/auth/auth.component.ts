@@ -10,15 +10,18 @@ export class AuthComponent {
     constructor(private router: Router){}
 
   IsLoggedIn(): boolean {
-    var fullName = localStorage.getItem('fullname')
-    if (fullName) {
+    var json = localStorage.getItem("data");
+    if (json) {
       return true;
     }
     return false;
   }
   
   getUserName(): string {
-    return localStorage.getItem('fullname')??"Error!";
+    var json = JSON.parse(localStorage.getItem("data")??"");
+    var fullName = json["FullName"];
+    
+    return fullName;
   }
 
   logout(): void {

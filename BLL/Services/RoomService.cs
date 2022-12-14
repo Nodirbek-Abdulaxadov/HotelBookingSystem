@@ -26,6 +26,14 @@ namespace BLL.Services
             return model;
         }
 
+        public async Task<bool> CheckAsync(string type, decimal price)
+        {
+            var list = await _unitOfWork.Rooms.GetAllAsync();
+            return list.Any(r => r.Status == RoomStatus.Empty &&
+                                 r.Type == type &&
+                                 r.Price == price);
+        }
+
         public async Task<IEnumerable<Room>> GetAllAsync()
             => await _unitOfWork.Rooms.GetAllAsync();
 

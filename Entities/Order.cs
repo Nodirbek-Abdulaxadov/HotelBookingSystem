@@ -30,6 +30,6 @@ namespace Entities
         [Required]
         public int RoomId { get; set; }
         [Required]
-        public int GuestId { get; set; }
+        public string GuestId { get; set; }
     }
 }

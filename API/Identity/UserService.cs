@@ -1,5 +1,4 @@
 ﻿using API.Identity;
-using API.Validations;
 using API.ViewModels.Identity;
 using Datalayer.Context;
 using Entities;
@@ -36,7 +35,7 @@ namespace API.Interfaces
         }
         public async Task<(bool, string)> CreateUserAsync(RegisterUserViewModel viewModel)
         {
-            var userExist = _userManager.FindByPhoneNumber(viewModel.PhoneNumber);
+            var userExist = await _userManager.FindByEmailAsync(viewModel.Email);
             if (userExist != null)
             {
                 return (false, "This phone number is already exist!");
@@ -48,7 +47,7 @@ namespace API.Interfaces
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
-                UserName = string.Concat('@', viewModel.PhoneNumber),
+                UserName = viewModel.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 EmailConfirmed = true
             };
@@ -74,13 +73,13 @@ namespace API.Interfaces
 
         public async Task<(bool, string)> LoginUserAsync(LoginUserViewModel viewModel)
         {
-            var userExist = _userManager.FindByPhoneNumber(viewModel.PhoneNumber);
+            var userExist = await _userManager.FindByEmailAsync(viewModel.Email);
             if (userExist != null && await _userManager.CheckPasswordAsync(userExist, viewModel.Password))
             {
                 return (true, JsonConvert.SerializeObject(await GeneraTokenAsync(userExist, null)));
             }
 
-            return (false, "Login failed! Incorrect phone number or password!");
+            return (false, "Login failed! Incorrect email or password!");
         }
 
         private async Task<AuthResultViewModel> GeneraTokenAsync(User user, RefreshToken? refresh)
@@ -116,7 +115,7 @@ namespace API.Interfaces
                 var rToken = new AuthResultViewModel()
                 {
                     FullName = user.FirstName + " " + user.LastName,
-                    PhoneNumber = user.PhoneNumber,
+                    Email = user.Email,
                     Token = jwtToken,
                     RefreshToken = refresh.Token,
                     ExpiresAt = token.ValidTo,
@@ -140,7 +139,7 @@ namespace API.Interfaces
             var response = new AuthResultViewModel()
             {
                 FullName = user.FirstName + " " + user.LastName,
-                PhoneNumber = user.PhoneNumber,
+                Email = user.Email,
                 Token = jwtToken,
                 RefreshToken = refreshToken.Token,
                 ExpiresAt = token.ValidTo,

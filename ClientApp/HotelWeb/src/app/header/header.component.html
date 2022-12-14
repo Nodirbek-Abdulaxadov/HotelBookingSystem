@@ -15,26 +15,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav nav-links me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" routerLink="/">Home</a>
+            <a class="nav-link active" routerLink="/">{{'nav.home' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" routerLink="rooms">Rooms</a>
+            <a class="nav-link active" routerLink="rooms">{{'nav.rooms' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#about">About</a>
+            <a class="nav-link active" href="#about">{{'nav.about' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-success" routerLink="booking">Book now</a>
+            <a class="nav-link active" href="#contact">{{'nav.contact' | translate}}</a>
           </li>
         </ul>
 
-        <select class="form-select" aria-label="Default select example">
-          <option value="1" selected>En</option>
-          <option value="2">Ru</option>
-          <option value="3">Uz</option>
+        <select (change)="changeLanguage($event)" class="form-select" aria-label="Default select example">
+          <option id="en" value="en">En</option>
+          <option id="ru" value="ru">Ru</option>
+          <option id="uz" value="uz">Uz</option>
         </select>
         <app-auth></app-auth>
       </div>
