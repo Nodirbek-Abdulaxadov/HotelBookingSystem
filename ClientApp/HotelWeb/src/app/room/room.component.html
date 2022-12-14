@@ -8,7 +8,7 @@
             <div>
                 <h3 class="text-center">{{room.type}}</h3>
                 <h4>{{'price' | translate}}: $ {{room.price}}</h4>
-                <p>{{room.descriptionEn}}</p>
+                <p>{{room.description}}</p>
             </div>
             <div class="d-flex justify-content-center">
                 <a [routerLink]="['/new-order', room.id]" class="btn btn-warning">{{'buttons.book' | translate}}</a>

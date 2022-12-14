@@ -1,7 +1,5 @@
 ﻿using BLL.DTOs.Rooms;
 using BLL.Interfaces;
-using Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -17,41 +15,41 @@ namespace API.Controllers
             _roomService = roomService;
         }
 
+        [HttpGet("{language}")]
+        public async Task<IActionResult> GetByLanguage(string language)
+        {
+            var list = await _roomService.GetAllAsync(language);
+            return Ok(list);
+        }
+
+        [HttpGet("empty/{language}")]
+        public async Task<IActionResult> GetEmptRooms(string language)
+        {
+            var list = await _roomService.GetEmptyRoomsAsync(language);
+            return Ok(list);
+        }
+
         [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var list = await _roomService.GetAllAsync();
-            return Ok(list);
-        }
-
-        [HttpGet("empty")]
-        public async Task<IActionResult> GetEmptRooms()
-        {
-            var list = await _roomService.GetEmptyRoomsAsync();
-            return Ok(list);
-        }
-
-        [HttpGet("{roomId}")]
-        public async Task<IActionResult> GetById(int roomId)
+        public async Task<IActionResult> GetById(int roomId, string language)
         {
             if (!(await ExistRoom(roomId)))
             {
                 return NotFound("This room could not match!");
             }
 
-            var model = await _roomService.GetByIdAsync(roomId);
+            var model = await _roomService.GetByIdAsync(roomId, language);
             return Ok(model);
         }
 
-        [HttpGet("by/{roomNumber}")]
-        public async Task<IActionResult> GetByNumber(int roomNumber)
+        [HttpGet("by")]
+        public async Task<IActionResult> GetByNumber(int roomNumber, string language)
         {
             if (!(await ExistRoomNumber(roomNumber)))
             {
                 return NotFound("This room could not match!");
             }
 
-            var model = await _roomService.GetByNumberAsync(roomNumber);
+            var model = await _roomService.GetByNumberAsync(roomNumber, language);
             return Ok(model);
         }
 
@@ -118,7 +116,7 @@ namespace API.Controllers
 
         private async Task<bool> ExistOrNotUnique(int roomNumber, int roomId)
         {
-            var rooms = await _roomService.GetAllAsync();
+            var rooms = await _roomService.GetAllAsync("uz");
             var room = rooms.FirstOrDefault(r => r.Number == roomNumber);
             if (room == null)
             {

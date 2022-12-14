@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RoomModel } from '../interfaces/RoomModel';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +8,17 @@ export class RoomService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl: string = "https://localhost:44363/api/rooms/";
+  baseUrl: string = "https://localhost:44363/api/rooms";
+
+  languge: string = "";
 
   getAllRooms() {
-    return this.httpClient.get(this.baseUrl);
+    this.languge = localStorage.getItem("language")!;
+    return this.httpClient.get(this.baseUrl + '/' + this.languge);
   }
 
   getRoomById(id: number) {
-    return this.httpClient.get(this.baseUrl + id);
+    this.languge = localStorage.getItem("language")!;
+    return this.httpClient.get(this.baseUrl + "?roomId="+ id +"&language=" + this.languge);
   }
 }
