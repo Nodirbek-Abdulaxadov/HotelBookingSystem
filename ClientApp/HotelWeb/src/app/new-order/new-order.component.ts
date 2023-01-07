@@ -14,6 +14,8 @@ export class NewOrderComponent implements OnInit {
 
   roomid: number = 0;
   price: number = 0;
+  roomPrice: number = 0;
+  diff : number = 0;
 
   startDate = new FormControl('', [
     Validators.required
@@ -44,7 +46,7 @@ export class NewOrderComponent implements OnInit {
 
       this.roomService.getRoomById(this.roomid).subscribe((data) => {
         this.price = (data as RoomModel).price;
-        console.log(this.price)
+        this.roomPrice = this.price;
       });
     }
   }
@@ -66,5 +68,31 @@ export class NewOrderComponent implements OnInit {
     const el = document.getElementById('waiting')!;
     el.style.display = 'block';
     this.orderService.createOrder(this.orderForm.getRawValue(), this.roomid);
+  }
+
+  
+
+  calculateDays(): void {
+
+    var start = new Date(this.startDate.value!);
+    var end = new Date(this.endDate.value!);
+    var today = new Date();
+    if (today.getDate() - start.getDate() > 0) {
+      this.startDate.setValue(today.toString());
+    }
+    this.diff = end.getDate() - start.getDate()
+    
+    if (this.diff > 0) {
+      //some
+      this.price = this.price * this.diff;
+    }
+    else if (this.diff == 0) {
+      this.price = this.roomPrice;
+    }
+    else {
+
+      var startDate = document.getElementById("startDate")!;
+      var endDate = document.getElementById("endDate")!;
+    }
   }
 }

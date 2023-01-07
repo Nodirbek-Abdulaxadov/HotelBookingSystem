@@ -85,7 +85,6 @@ namespace API.Controllers
             }
 
             var res = await _roomService.CheckAsync(room.Type, room.Price);
-            Thread.Sleep(500);
             
             return Ok(res);
         }

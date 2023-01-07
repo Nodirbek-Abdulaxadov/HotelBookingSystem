@@ -8,11 +8,13 @@
       <div class="mb-3 row">
         <div class="col-md-6">
           <label for="startDate" class="form-label">{{ "order.start" | translate }}<span class="text-danger"> *</span></label>
-          <input type="date" class="form-control" id="startDate" formControlName="startDate" required />
+          <input type="date" (change)="calculateDays();" class="form-control" id="startDate" formControlName="startDate" required />
+          <p id="startDate" style="display: none" class="btn btn-danger w-100 ms-0"></p>
         </div>
         <div class="col-md-6">
           <label for="endDate" class="form-label">{{ "order.end" | translate }}<span class="text-danger"> *</span></label>
-          <input type="date" class="form-control" id="endDate" formControlName="endDate" required />
+          <input type="date" (change)="calculateDays();" class="form-control" id="endDate" formControlName="endDate" required />
+          <p id="endDate" style="display: none" class="btn btn-danger w-100 ms-0"></p>
         </div>
       </div>
       <div class="mb-3 row">
