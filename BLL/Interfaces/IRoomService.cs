@@ -5,18 +5,17 @@ namespace BLL.Interfaces
 {
     public interface IRoomService
     {
-        Task<bool> CheckAsync(string type, decimal price);
-        Task<IEnumerable<ViewRoomDto>> GetEmptyRoomsAsync(string language);
-        Task<IEnumerable<ViewRoomDto>> GetAllAsync(string language);
-        Task<ViewRoomDto?> GetByIdAsync(int roomId, string language);
-        Task<ViewRoomDto?> GetByNumberAsync(int roomNumber, string language);
+        //Task<bool> CheckAsync(string type, decimal price);
+        //Task<IEnumerable<ViewRoomDto>> GetEmptyRoomsAsync(string language);
+        //Task<ViewRoomDto> GetByNumberAsync(int RoomNumber, string language);
+        //Task<Room> GetByNumberAsync(int RoomNumber);
+        //Task<IEnumerable<Room>> GetEmptyRoomsAsync();
 
-        Task<IEnumerable<Room>> GetEmptyRoomsAsync();
-        Task<IEnumerable<Room>> GetAllAsync();
-        Task<Room?> GetByIdAsync(int roomId);
-        Task<Room?> GetByNumberAsync(int roomNumber);
-        Task<Room> AddAsync(AddRoomDto room);
-        Task<Room> UpdateAsync(UpdateRoomDto room);
-        Task RemoveAsync(int roomId);
+        Task<IEnumerable<ViewRoomDto>> GetAllAsync();
+        Task<Room> GetByIdAsync(int RoomId);
+        Task<ViewRoomDto> GetByIdForViewAsync(int RoomId);
+        Task AddAsync(AddRoomDto Room);
+        Task UpdateAsync(UpdateRoomDto room);
+        Task RemoveAsync(int RoomId);
     }
 }

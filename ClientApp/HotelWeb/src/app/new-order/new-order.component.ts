@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RoomModel } from '../interfaces/RoomModel';
+import { RoomTypeModel } from '../interfaces/RoomModel';
 import { RoomService } from '../room/room.service';
 import { OrderService } from './order.service';
 
@@ -45,7 +45,7 @@ export class NewOrderComponent implements OnInit {
       this.roomid = Number(routeParams.get('roomId'));
 
       this.roomService.getRoomById(this.roomid).subscribe((data) => {
-        this.price = (data as RoomModel).price;
+        this.price = (data as RoomTypeModel).price;
         this.roomPrice = this.price;
       });
     }

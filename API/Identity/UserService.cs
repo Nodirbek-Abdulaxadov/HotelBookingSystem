@@ -82,7 +82,7 @@ namespace API.Interfaces
             return (false, "Login failed! Incorrect email or password!");
         }
 
-        private async Task<AuthResultViewModel> GeneraTokenAsync(User user, RefreshToken? refresh)
+        private async Task<AuthResultViewModel> GeneraTokenAsync(User user, RefreshToken refresh)
         {
             var authClaims = new List<Claim>()
             {

@@ -1,9 +1,8 @@
-export interface RoomModel {
-    type: string,
-    status: number,
+export interface RoomTypeModel {
+    id: number;
+    name: string,
     capacity: number,
-    description: string
     price: number,
-    imagePath: string,
-    id: number
+    description: string
+    images: string[],
 }

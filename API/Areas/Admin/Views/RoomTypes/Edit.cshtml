@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "Add Room Types home";
+}
+@model UpdateRoomTypeDto
+
+<form asp-area="admin" asp-controller="roomtypes" asp-action="edit" enctype="multipart/form-data" method="post" style="margin: 0 30px;">
+    <h3 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Add new Room Type
+    </h3>
+
+    <!--Hidden data-->
+
+    <input type="hidden" asp-for="Id" value="@Model.Id"/>
+    @foreach(var img in Model.Images)
+    {
+        <input type="hidden" asp-for="Images" value="@img" />
+    }
+
+    <!--Hidden data-->
+
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Name
+            </span>
+            <input asp-for="Name"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="text" />
+            <span asp-validation-for="Name" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Capacity
+            </span>
+            <input asp-for="Capacity"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="number" />
+            <span asp-validation-for="Capacity" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Price
+            </span>
+            <input asp-for="Price"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="number" />
+            <span asp-validation-for="Price" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Description Uz
+            </span>
+            <textarea asp-for="DescriptionUz"
+                      class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                      type="text" rows="4"></textarea>
+            <span asp-validation-for="DescriptionUz" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Description En
+            </span>
+            <textarea asp-for="DescriptionEn"
+                      class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                      type="text" rows="4"></textarea>
+            <span asp-validation-for="DescriptionEn" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Description Ru
+            </span>
+            <textarea asp-for="DescriptionRu"
+                      class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                      type="text" rows="4"></textarea>
+            <span asp-validation-for="DescriptionRu" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+    </div>
+
+        @*@foreach (var image in Model.Images)
+        {
+            string path = "~/images/" + image.Split("/").Last();
+
+            <div>
+                <img src="@path" style="width: 100px;" asp-append-version="true">
+            </div>
+        }*@
+
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Select images
+            </span>
+        </label>
+        <div class="relative">
+            <input asp-for="NewImageFiles" multiple accept="image/*" type="file" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Select files">
+        </div>
+        <span asp-validation-for="NewImageFiles" class="text-xs text-red-600 dark:text-red-400"></span>
+    </div>
+
+    <div class="flex items-center justify-center mb-4">
+        <a asp-area="admin" asp-controller="roomtypes" asp-action="index" class="px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-gray-400 border border-transparent rounded-lg active:bg-gray-400 hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray">
+            Cancel
+        </a>
+        <button type="submit" class="px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
+            Save
+        </button>
+    </div>
+</form>

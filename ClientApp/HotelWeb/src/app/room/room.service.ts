@@ -8,7 +8,7 @@ export class RoomService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl: string = "https://localhost:44363/api/rooms";
+  baseUrl: string = "https://localhost:44363/api/roomtypes";
 
   languge: string = "";
 
@@ -19,6 +19,6 @@ export class RoomService {
 
   getRoomById(id: number) {
     this.languge = localStorage.getItem("language")!;
-    return this.httpClient.get(this.baseUrl + "?roomId="+ id +"&language=" + this.languge);
+    return this.httpClient.get(this.baseUrl+"/" + this.languge + "/"+ id );
   }
 }

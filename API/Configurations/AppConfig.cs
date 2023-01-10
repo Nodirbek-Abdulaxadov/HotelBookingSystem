@@ -20,12 +20,13 @@ namespace API.Configurations
         public static void AddServices(this WebApplicationBuilder builder)
         {
             //API Services
-            builder.Services.AddControllers();
+            builder.Services.AddControllersWithViews();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             //Add DI Services
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IRoomTypeInterface, RoomTypeRepository>();
             builder.Services.AddTransient<IRoomInterface, RoomRepository>();
             builder.Services.AddTransient<IOrderInterface, OrderRepository>();
             builder.Services.AddTransient<IServiceInterface, ServiceRepository>();
@@ -33,6 +34,7 @@ namespace API.Configurations
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             builder.Services.AddTransient<IImageService, ImageService>();
+            builder.Services.AddTransient<IRoomTypeService, RoomTypeService>();
             builder.Services.AddTransient<IRoomService, RoomService>();
             builder.Services.AddTransient<IOrderService, OrderService>();
 
@@ -97,13 +99,21 @@ namespace API.Configurations
             
             app.UseStaticFiles();
 
+            app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors(CORSOpenPolicy);
 
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllers();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Login}/{id?}"
+                );
+                endpoints.MapControllers();
+            });
             app.SeedRolesToDatabase().Wait();
 
             app.Run();

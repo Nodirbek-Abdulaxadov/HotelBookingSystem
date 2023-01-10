@@ -22,11 +22,11 @@ namespace API.Controllers
             return Ok(list);
         }
 
-        [HttpGet("empty")]
-        public async Task<IActionResult> GetEmptRooms()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
         {
-            var list = await _roomService.GetEmptyRoomsAsync();
-            return Ok(list);
+            var model = await _roomService.GetByIdAsync(id);
+            return Ok(model);
         }
     }
 }

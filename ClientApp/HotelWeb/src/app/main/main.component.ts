@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomModel } from '../interfaces/RoomModel';
+import { RoomTypeModel } from '../interfaces/RoomModel';
 import { RoomService } from '../room/room.service';
 
 @Component({
@@ -9,12 +9,12 @@ import { RoomService } from '../room/room.service';
 })
 export class MainComponent implements OnInit {
   title = 'HotelWeb';
-  rooms: RoomModel[] = [];
+  rooms: RoomTypeModel[] = [];
   constructor(private roomService: RoomService){}
 
   ngOnInit(): void {
     this.roomService.getAllRooms().subscribe((data) => {
-        this.rooms = data as RoomModel[];
+        this.rooms = data as RoomTypeModel[];
     });
   }
 }

@@ -12,6 +12,11 @@ import { AdminsComponent } from './pages/admins/admins.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { ViewComponent } from './pages/pending-orders/view/view.component';
+import { RoomTypesComponent } from './pages/room-types/room-types.component';
+import { HttpClientModule } from '@angular/common/http';
+import { from } from 'rxjs';
+import { AddRoomTypeComponent } from './pages/room-types/add-room-type/add-room-type.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +29,16 @@ import { ViewComponent } from './pages/pending-orders/view/view.component';
     AdminsComponent,
     LoginComponent,
     RegisterComponent,
-    ViewComponent
+    ViewComponent,
+    RoomTypesComponent,
+    AddRoomTypeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomModel } from '../interfaces/RoomModel';
+import { RoomTypeModel } from '../interfaces/RoomModel';
 import { RoomService } from '../room/room.service';
 
 @Component({
@@ -8,14 +8,14 @@ import { RoomService } from '../room/room.service';
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
-  rooms: RoomModel[] = [];
+  rooms: RoomTypeModel[] = [];
 
   constructor(private roomService: RoomService){
   }
 
   ngOnInit(): void {
     this.roomService.getAllRooms().subscribe((data) => {
-        this.rooms = data as RoomModel[];
+        this.rooms = data as RoomTypeModel[];
     });
   }
 }
