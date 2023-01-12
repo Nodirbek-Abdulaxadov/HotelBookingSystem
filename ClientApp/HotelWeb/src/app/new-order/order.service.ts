@@ -16,12 +16,12 @@ export class OrderService {
 
     this.email = (JSON.parse(localStorage.getItem("data")??""))["Email"].replace('@', "%40");
     
-    this.httpClient.get(this.baseUrl + "check?email="+this.email+"&roomId="+roomId).subscribe({
+    this.httpClient.get(this.baseUrl + "check?email="+this.email+"&roomTypeId="+roomId).subscribe({
       next: data => {
         if (data == true){
           this.httpClient.post(this.baseUrl + "create/" + this.email, form).subscribe({
             next: data => {
-              console.log(data);
+              alert('Order created successfully!');
             },
             error: error =>{
               console.log(error);

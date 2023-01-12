@@ -7,15 +7,15 @@ namespace BLL.DTOs.Orders
     {
         [Required]
         [StringLength(100)]
-        public string? StartDate { get; set; }
+        public string StartDate { get; set; }
         [Required]
         [StringLength(100)]
-        public string? EndDate { get; set; }
+        public string EndDate { get; set; }
         [Required]
         public int NumberOfAdults { get; set; }
         public int NumberOfChildren { get; set; }
         [StringLength(200)]
-        public string? Additional { get; set; }
+        public string Additional { get; set; }
         public decimal TotalPrice { get; set; }
 
         //FK
@@ -34,7 +34,7 @@ namespace BLL.DTOs.Orders
                 OrderStatus = OrderStatus.Waiting,
                 Additional = v.Additional,
                 BookedDate = DateTime.UtcNow.ToString(),
-                RoomId = v.RoomId,
+                RoomTypeId = v.RoomId,
                 GuestId = v.GuestId
             };
     }

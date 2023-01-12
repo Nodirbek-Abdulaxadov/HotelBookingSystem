@@ -6,7 +6,8 @@
         Waiting,
         Confirmed,
         Active,
-        Completed
+        Completed,
+        Declined
     }
 
     public enum RoomStatus

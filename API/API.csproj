@@ -35,7 +35,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Orders\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

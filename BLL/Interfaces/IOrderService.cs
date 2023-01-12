@@ -9,6 +9,7 @@ namespace BLL.Interfaces
         Task<IEnumerable<Order>> GetAllOrdersAsync();
         Task<Order> CreateOrderAsync(AddOrderDto order);
         Task<Order> ConfirmOrderAsync(int orderId);
+        Task<Order> DeclineOrderAsync(int orderId);
         Task<Order> GetByIdAsync(int id);
     }
 }

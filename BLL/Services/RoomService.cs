@@ -14,18 +14,26 @@ namespace BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task AddAsync(AddRoomDto Room)
+        public async Task AddAsync(AddRoomDto room)
         {
-            if (Room.RoomTypeId == 0)
+            if (room.RoomTypeId == 0)
             {
-                Room.RoomTypeId = (await _unitOfWork.RoomTypes.GetAllAsync()).First().Id;
+                room.RoomTypeId = (await _unitOfWork.RoomTypes.GetAllAsync()).First().Id;
             }
-            var model = await _unitOfWork.Rooms.AddAsync((Room)Room);
+            
+            var model = await _unitOfWork.Rooms.AddAsync((Room)room);
             await _unitOfWork.SaveAsync();
-            var type = await _unitOfWork.RoomTypes.GetByIdAsync(Room.RoomTypeId);
+            var type = await _unitOfWork.RoomTypes.GetByIdAsync(room.RoomTypeId);
             model.RoomType = type;
             model = await _unitOfWork.Rooms.UpdateAsync(model);
             await _unitOfWork.SaveAsync();
+        }
+
+        public async Task<bool> CheckAsync(int roomTypeId)
+        {
+            var rooms = await _unitOfWork.Rooms.GetAllWithRoomTypesAsync();
+            var exist = rooms.Any(r => r.RoomType.Id == roomTypeId);
+            return exist;
         }
 
         public async Task<IEnumerable<ViewRoomDto>> GetAllAsync()
@@ -34,6 +42,9 @@ namespace BLL.Services
             var res = list.Select(i => (ViewRoomDto)i);
             return res;
         }
+
+        public async Task<IEnumerable<Room>> GetAllRoomsAsync()
+            => await _unitOfWork.Rooms.GetAllWithRoomTypesAsync();
 
         public async Task<Room> GetByIdAsync(int RoomId)
         {

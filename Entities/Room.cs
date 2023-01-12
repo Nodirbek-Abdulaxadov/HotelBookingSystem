@@ -11,6 +11,9 @@ namespace Entities
         [Required]
         public RoomStatus Status { get; set; }
 
-        public RoomType? RoomType { get; set; }
+        public RoomType RoomType { get; set; }
+        [ForeignKey("OrderrId")]
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
     }
 }

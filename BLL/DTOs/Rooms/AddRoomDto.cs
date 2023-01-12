@@ -19,7 +19,8 @@ namespace BLL.DTOs.Rooms
             return new Room()
             {
                 Number = v.Number,
-                Status = v.Status
+                Status = v.Status,
+                OrderId = 1
             };
         }
     }

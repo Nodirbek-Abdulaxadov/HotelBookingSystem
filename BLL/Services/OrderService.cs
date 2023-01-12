@@ -34,6 +34,17 @@ namespace BLL.Services
             return model;
         }
 
+        public async Task<Order> DeclineOrderAsync(int orderId)
+        {
+            var order = await _unitOfWork.Orders.GetByIdAsync(orderId);
+            order.OrderStatus = OrderStatus.Declined;
+            order.ConfirmedDate = DateTime.UtcNow.ToString();
+            order = await _unitOfWork.Orders.UpdateAsync(order);
+            await _unitOfWork.SaveAsync();
+
+            return order;
+        }
+
         public async Task<IEnumerable<Order>> GetAllOrdersAsync()
             => await _unitOfWork.Orders.GetAllAsync();
 

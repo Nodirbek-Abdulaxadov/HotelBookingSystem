@@ -13,15 +13,18 @@ namespace API.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly UserManager<User> _userManager;
-        private readonly IRoomTypeService _roomService;
+        private readonly IRoomService _roomService;
+        private readonly IRoomTypeService _roomTypeService;
 
         public OrdersController(IOrderService orderService,
                                UserManager<User> userManager,
-                               IRoomTypeService roomService)
+                               IRoomTypeService roomTypeService,
+                               IRoomService roomService)
         {
             _orderService = orderService;
             _userManager = userManager;
             _roomService = roomService;
+            _roomTypeService = roomTypeService;
         }
 
         [HttpGet]
@@ -64,30 +67,30 @@ namespace API.Controllers
             return Ok(orders);
         }
 
-        //[HttpGet("check")]
-        //public async Task<IActionResult> Check(string email, int roomId)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpGet("check")]
+        public async Task<IActionResult> Check(string email, int roomTypeId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var user = await _userManager.FindByEmailAsync(email);
-        //    if (user == null)
-        //    {
-        //        return BadRequest("User not found!");
-        //    }
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest("User not found!");
+            }
 
-        //    var room = await _roomService.GetByIdAsync(roomId);
-        //    if (room == null)
-        //    {
-        //        return BadRequest("Room not found!");
-        //    }
+            var room = await _roomTypeService.GetByIdAsync(roomTypeId);
+            if (room == null)
+            {
+                return BadRequest("Room not found!");
+            }
 
-        //    var res = await _roomService.CheckAsync(room.Type, room.Price);
-            
-        //    return Ok(res);
-        //}
+            var res = await _roomService.CheckAsync(roomTypeId);
+
+            return Ok(res);
+        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCompletedOrders(int id)

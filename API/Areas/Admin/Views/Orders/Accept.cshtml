@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Accept order page";
+}
+@model AcceptOrderDto
+
+<form asp-area="admin" asp-controller="order" asp-action="accept" enctype="multipart/form-data" method="post" style="margin: 0 30px;">
+    <h3 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Accept order
+    </h3>
+
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+        <label class="block text-sm">
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                    Booked Date:
+                </span>
+                <p>@Model.Order.BookedDate</p>
+            </label>
+            <span class="text-gray-700 dark:text-gray-400">
+                Full Name:
+            </span>
+            <p>@Model.User.FirstName @Model.User.LastName</p>
+        </label>
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Email:
+            </span>
+            <p>@Model.User.Email</p>
+        </label>
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Start Date:
+            </span>
+            <p>@Model.Order.StartDate</p>
+        </label>
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                End Date:
+            </span>
+            <p>@Model.Order.EndDate</p>
+        </label>
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                People
+            </span>
+            @{
+                string children = "";
+                if (Model.Order.NumberOfChildren > 0)
+                {
+                    children = $" and { Model.Order.NumberOfChildren.ToString()} children";
+                }
+            }
+            <p>@Model.Order.NumberOfAdults Adults @children</p> 
+        </label>
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Additional
+            </span>
+            <p>@Model.Order.Additional</p>
+        </label>
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Total Price
+            </span>
+            <p>@Model.Order.TotalPrice</p>
+        </label>
+    </div>
+
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+        <label class="block text-sm">
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                    Please select Rooms
+                </span>
+                @for (int i = 0; i < Model.RoomChecks.Count; i++)
+                {
+                    <div>
+                        @Html.HiddenFor(x => x.RoomChecks[i].Room)
+                        @Html.CheckBoxFor(x => x.RoomChecks[i].IsChecked)
+                        @Html.LabelFor(x => x.RoomChecks[i].IsChecked, Model.RoomChecks[i].Room.Number.ToString())
+                    </div>
+                }
+                <span asp-validation-for="RoomChecks" class="text-xs text-red-600 dark:text-red-400"></span>
+            </label>
+        </label>
+    </div>
+
+    <div class="flex items-center justify-center mb-4">
+        <a asp-area="admin" asp-controller="orders" asp-action="pending" class="px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-gray-400 border border-transparent rounded-lg active:bg-gray-400 hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray">
+            Cancel
+        </a>
+        <button type="submit" class="px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
+            Save
+        </button>
+    </div>
+</form>
