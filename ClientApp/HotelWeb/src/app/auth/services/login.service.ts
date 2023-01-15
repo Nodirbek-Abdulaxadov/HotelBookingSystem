@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 export class LoginService {
 
   constructor(private httpClient: HttpClient,
-              private router: Router) { }
+              private router: Router,
+              private toastr: ToastrService) { }
 
   baseUrl: string = "https://localhost:44363/api/Authentication"
 
@@ -16,10 +18,7 @@ export class LoginService {
       this.httpClient.post(this.baseUrl+'/login-user', form, {withCredentials: true}).subscribe(
        { next: data => {
             localStorage.setItem("data", JSON.stringify(data));
-            // const natification = document.getElementById('natification')!;
-            // natification.style.display = 'block';
-            //setTimeout(() => '', 3000);
-            alert('Login successfully!');
+            this.toastr.success('', 'Successfully logged in!');
             this.router.navigate(['/']);
         },
         error: error => {

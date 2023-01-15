@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { TagContentType } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegisterService {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, 
+              private router: Router,
+              private toastr: ToastrService) {}
 
   baseUrl: string = 'https://localhost:44363/api/Authentication';
 
@@ -26,7 +28,7 @@ export class RegisterService {
       .post(this.baseUrl + '/register-guest', user)
       .subscribe({
         next: (data) => {
-          alert('Successfully created your account!\n Please Login')
+          this.toastr.success('Please login now!', 'Successfully registered');
           this.router.navigate(['/login']);
         },
         error: (error) => {

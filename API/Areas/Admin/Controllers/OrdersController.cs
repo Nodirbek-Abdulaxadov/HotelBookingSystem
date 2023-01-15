@@ -25,6 +25,30 @@ namespace API.Areas.Admin.Controllers
             _roomService = roomService;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var listOfOrders = await _orderService.GetAllOrdersAsync();
+            List<ViewOrderDto> pendingOrders = new();
+            foreach (var order in listOfOrders)
+            {
+                var guest = _userManager.Users.FirstOrDefault(i => i.Id == order.GuestId);
+                var type = await _typeService.GetByIdAsync(order.RoomTypeId);
+
+                pendingOrders.Add(new ViewOrderDto
+                {
+                    Id = order.Id,
+                    FullName = $"{guest.FirstName} {guest.LastName}",
+                    StartDate = order.StartDate,
+                    EndDate = order.EndDate,
+                    TotalPrice = order.TotalPrice,
+                    RoomType = type,
+                    Status = order.OrderStatus.ToString()
+                });
+            }
+
+            return View(pendingOrders);
+        }
+
         public async Task<IActionResult> Pending()
         {
             var listOfOrders = await _orderService.GetAllOrdersAsync();
@@ -54,7 +78,7 @@ namespace API.Areas.Admin.Controllers
         {
             var order = await _orderService.GetByIdAsync(orderId);
             await _orderService.DeclineOrderAsync(orderId);
-            return RedirectToAction("index");
+            return RedirectToAction("pending");
         }
 
         [HttpGet]
@@ -84,8 +108,29 @@ namespace API.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Accept(AcceptOrderDto vm)
         {
-            
-            return View();
+            List<Room> selectedRooms = new();
+            selectedRooms = vm.RoomChecks.Where(i => i.IsChecked == true)
+                                         .Select(i => i.Room)
+                                         .ToList();
+
+            var peopleCount = vm.Order.NumberOfAdults + vm.Order.NumberOfChildren;
+            var type = (await _typeService.GetAllAsync())
+                                          .FirstOrDefault(i => i.Id == vm.Order.RoomTypeId);
+            var bedCount = selectedRooms.Count * type.Capacity;
+            if (bedCount < peopleCount)
+            {
+                ModelState.AddModelError(nameof(RoomSelect), "There is no enough space for all guests!");
+
+                return View();
+            }
+            else
+            {
+                var order = await _orderService.GetByIdAsync(vm.Order.Id);
+                order.Rooms = selectedRooms;
+                order.OrderStatus = OrderStatus.Confirmed;
+
+                return RedirectToAction("index");
+            }
         }
     }
 }

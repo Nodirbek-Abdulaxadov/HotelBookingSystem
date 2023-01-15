@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class OrderService {
 
   baseUrl = "https://localhost:44363/api/orders/";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private toastr: ToastrService,
+              private router: Router) { }
 
   email: string = ""
   createOrder(form: any, roomId: number) {
@@ -21,10 +24,11 @@ export class OrderService {
         if (data == true){
           this.httpClient.post(this.baseUrl + "create/" + this.email, form).subscribe({
             next: data => {
-              alert('Order created successfully!');
+              this.toastr.success('', 'Order created successfully!');
+              this.router.navigate(['/']);
             },
             error: error =>{
-              console.log(error);
+              this.toastr.error('', error);
             }
           })}
           else {
@@ -36,7 +40,7 @@ export class OrderService {
           }
       }, 
       error: error =>{
-        console.log(error);
+        this.toastr.error(error, "Error!");
       }
     });
   }

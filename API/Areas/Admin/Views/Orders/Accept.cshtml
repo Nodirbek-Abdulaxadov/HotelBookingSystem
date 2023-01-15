@@ -15,30 +15,30 @@
                 <span class="text-gray-700 dark:text-gray-400">
                     Booked Date:
                 </span>
-                <p>@Model.Order.BookedDate</p>
+                <p>@Model.Order.BookedDate</p> <br/>
             </label>
             <span class="text-gray-700 dark:text-gray-400">
                 Full Name:
             </span>
-            <p>@Model.User.FirstName @Model.User.LastName</p>
+            <p>@Model.User.FirstName @Model.User.LastName</p> <br />
         </label>
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">
                 Email:
             </span>
-            <p>@Model.User.Email</p>
+            <p>@Model.User.Email</p> <br />
         </label>
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">
                 Start Date:
             </span>
-            <p>@Model.Order.StartDate</p>
+            <p>@Model.Order.StartDate</p> <br />
         </label>
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">
                 End Date:
             </span>
-            <p>@Model.Order.EndDate</p>
+            <p>@Model.Order.EndDate</p> <br />
         </label>
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">
@@ -51,19 +51,19 @@
                     children = $" and { Model.Order.NumberOfChildren.ToString()} children";
                 }
             }
-            <p>@Model.Order.NumberOfAdults Adults @children</p> 
+            <p>@Model.Order.NumberOfAdults Adults @children</p>  <br />
         </label>
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">
                 Additional
             </span>
-            <p>@Model.Order.Additional</p>
+            <p>@Model.Order.Additional</p> <br />
         </label>
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">
                 Total Price
             </span>
-            <p>@Model.Order.TotalPrice</p>
+            <p>@Model.Order.TotalPrice</p> <br/>
         </label>
     </div>
 

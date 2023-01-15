@@ -70,6 +70,7 @@ namespace API.Controllers
         [HttpGet("check")]
         public async Task<IActionResult> Check(string email, int roomTypeId)
         {
+            Thread.Sleep(2000);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -116,6 +117,7 @@ namespace API.Controllers
         [HttpPost("create/{email}")]
         public async Task<IActionResult> Create(string email, [FromBody] AddOrderDto orderDto)
         {
+            Thread.Sleep(2000);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

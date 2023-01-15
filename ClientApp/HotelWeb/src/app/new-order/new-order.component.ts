@@ -68,7 +68,6 @@ export class NewOrderComponent implements OnInit {
     const el = document.getElementById('waiting')!;
     el.style.display = 'block';
     this.orderService.createOrder(this.orderForm.getRawValue(), this.roomid);
-    this.router.navigate(['/']);
   }
 
   
