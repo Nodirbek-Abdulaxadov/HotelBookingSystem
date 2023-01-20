@@ -28,13 +28,13 @@ namespace API.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var listOfOrders = await _orderService.GetAllOrdersAsync();
-            List<ViewOrderDto> pendingOrders = new();
+            List<ViewOrderDto> orders = new();
             foreach (var order in listOfOrders)
             {
                 var guest = _userManager.Users.FirstOrDefault(i => i.Id == order.GuestId);
                 var type = await _typeService.GetByIdAsync(order.RoomTypeId);
 
-                pendingOrders.Add(new ViewOrderDto
+                orders.Add(new ViewOrderDto
                 {
                     Id = order.Id,
                     FullName = $"{guest.FirstName} {guest.LastName}",
@@ -46,7 +46,7 @@ namespace API.Areas.Admin.Controllers
                 });
             }
 
-            return View(pendingOrders);
+            return View(orders);
         }
 
         public async Task<IActionResult> Pending()
