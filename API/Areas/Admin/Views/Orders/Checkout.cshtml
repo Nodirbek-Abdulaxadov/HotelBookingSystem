@@ -3,15 +3,15 @@
 }
 @model AcceptOrderDto
 
-<form asp-area="admin" asp-controller="orders" asp-action="accept" enctype="multipart/form-data" method="post" style="margin: 0 30px;">
+<form asp-area="admin" asp-controller="order" asp-action="accept" enctype="multipart/form-data" method="post" style="margin: 0 30px;">
     <h3 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
         Accept order
     </h3>
 
     <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
 
-        <div class="grid grid-cols-2 gap-2">
-            <div >
+        <div class="md\:flex-row">
+            <div class="md\:grid-cols-6">
 
                 <label class="block text-sm">
                     <label class="block text-sm">
@@ -40,7 +40,7 @@
 
             </div>
 
-            <div>
+            <div class="md\:grid-cols-6">
 
                 <label class="block text-sm">
                     <span class="text-gray-700 dark:text-gray-400">
@@ -75,26 +75,6 @@
                 </label>
             </div>
         </div>
-    </div>
-
-    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-
-        <label class="block text-sm">
-            <label class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                    Please select Rooms
-                </span>
-                @for (int i = 0; i < Model.RoomChecks.Count; i++)
-                {
-                    <div>
-                        @Html.HiddenFor(x => x.RoomChecks[i].Room)
-                        @Html.CheckBoxFor(x => x.RoomChecks[i].IsChecked)
-                        @Html.LabelFor(x => x.RoomChecks[i].IsChecked, Model.RoomChecks[i].Room.Number.ToString())
-                    </div>
-                }
-                <span asp-validation-for="RoomChecks" class="text-xs text-red-600 dark:text-red-400"></span>
-            </label>
-        </label>
     </div>
 
     <div class="flex items-center justify-center mb-4">

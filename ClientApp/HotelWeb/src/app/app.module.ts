@@ -20,6 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { OrdersComponent } from './orders/orders.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,15 +39,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     RoomsComponent,
     NewOrderComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule, 
+    BrowserAnimationsModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

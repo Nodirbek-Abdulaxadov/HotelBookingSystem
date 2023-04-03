@@ -20,7 +20,6 @@ namespace Datalayer.Repositories
             Receipts = receipts;
             Rooms = roomInterface;
             _dbContext = dbContext;
-            _dbContext = dbContext;
         }
 
         public IRoomTypeInterface RoomTypes { get; }

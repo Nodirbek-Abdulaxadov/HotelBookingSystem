@@ -38,7 +38,7 @@ namespace API.Interfaces
             var userExist = await _userManager.FindByEmailAsync(viewModel.Email);
             if (userExist != null)
             {
-                return (false, "This phone number is already exist!");
+                return (false, "This email is already exist!");
             }
 
             User user = new()

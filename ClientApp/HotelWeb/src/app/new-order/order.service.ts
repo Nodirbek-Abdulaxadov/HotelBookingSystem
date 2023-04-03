@@ -16,7 +16,7 @@ export class OrderService {
 
   email: string = ""
   createOrder(form: any, roomId: number) {
-
+    console.log(form);
     this.email = (JSON.parse(localStorage.getItem("data")??""))["Email"].replace('@', "%40");
     
     this.httpClient.get(this.baseUrl + "check?email="+this.email+"&roomTypeId="+roomId).subscribe({

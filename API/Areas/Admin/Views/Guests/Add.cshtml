@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Add Guest home";
+}
+@model RegisterUserViewModel
+
+<form asp-area="admin" asp-controller="guests" asp-action="add" method="post" style="margin: 0 30px;">
+    <h3 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Add new guest
+    </h3>
+
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                First Name
+            </span>
+            <input asp-for="FirstName"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="text"/>
+            <span asp-validation-for="FirstName" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+         <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Last Name
+            </span>
+            <input asp-for="LastName"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="text"/>
+            <span asp-validation-for="LastName" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+         <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Email
+            </span>
+            <input asp-for="Email"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="email"/>
+            <span asp-validation-for="Email" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+        <label class="block text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Phone number
+            </span>
+            <input asp-for="PhoneNumber"
+                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue form-input"
+                   type="tel" />
+            <span asp-validation-for="PhoneNumber" class="text-xs text-red-600 dark:text-red-400"></span>
+        </label>
+
+    </div>
+
+    <div class="flex items-center justify-center mb-4">
+        <a asp-area="admin" asp-controller="guests" asp-action="index" class="px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-gray-400 border border-transparent rounded-lg active:bg-gray-400 hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray">
+            Cancel
+        </a>
+        <button type="submit" class="px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
+            Save
+        </button>
+    </div>
+</form>

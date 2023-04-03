@@ -110,7 +110,7 @@ namespace API.Configurations
             {
                 endpoints.MapControllerRoute(
                   name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Login}/{id?}"
+                  pattern: "{area:exists}/{controller=Auth}/{action=Login}/{id?}"
                 );
                 endpoints.MapControllers();
             });

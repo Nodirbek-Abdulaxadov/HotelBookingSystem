@@ -2,6 +2,16 @@
 
 namespace BLL.DTOs.Orders
 {
+    public class OrdersViewModel
+    {
+        public OrdersViewModel()
+        {
+            Orders = new List<ViewOrderDto>();
+        }
+        public IEnumerable<ViewOrderDto> Orders { get; set; }
+        public string SearchText { get; set; } = string.Empty;
+    }
+
     public class ViewOrderDto
     {
         public int Id { get; set; }

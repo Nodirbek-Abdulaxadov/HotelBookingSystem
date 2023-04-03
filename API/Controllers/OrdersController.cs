@@ -35,6 +35,36 @@ namespace API.Controllers
             return Ok(orders);
         }
 
+        [HttpGet("getall/{email}")]
+        public async Task<IActionResult> GetGuestOrders(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var orders = await _orderService.GetAllOrdersAsync();
+                var userOrders = orders.Where(i => i.GuestId == user.Id).Select(async order =>
+                {
+                    var roomType = await _roomTypeService.GetByIdAsync(order.RoomTypeId);
+                    return new OrderDto()
+                    {
+                        Id = order.Id,
+                        StartDate = order.StartDate,
+                        EndDate = order.EndDate,
+                        TotalPrice = order.TotalPrice,
+                        Status = order.OrderStatus.ToString(),
+                        BookedDate = order.BookedDate,
+                        NumberOfAdults = order.NumberOfAdults,
+                        NumberOfChildren = order.NumberOfChildren,
+                        RoomType = roomType.Name
+                    };
+                }).ToList();
+
+                return Ok(userOrders);
+            }
+
+            return BadRequest();
+        }
+
         [HttpGet("waiting")]
         public async Task<IActionResult> GetWaitingOrders()
         {
@@ -70,7 +100,6 @@ namespace API.Controllers
         [HttpGet("check")]
         public async Task<IActionResult> Check(string email, int roomTypeId)
         {
-            Thread.Sleep(2000);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -117,7 +146,6 @@ namespace API.Controllers
         [HttpPost("create/{email}")]
         public async Task<IActionResult> Create(string email, [FromBody] AddOrderDto orderDto)
         {
-            Thread.Sleep(2000);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

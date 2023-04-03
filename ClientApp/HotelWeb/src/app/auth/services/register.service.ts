@@ -35,7 +35,9 @@ export class RegisterService {
           const el = document.getElementById('error')!;
           console.log(error);
             switch(error.status) {
-              case 401: el.innerHTML = error.error; break;
+              case 401: {
+                el.innerHTML = error.error;
+              } break;
               case 400: {
                 var arr = error.error.errors;
                 el.innerHTML = "";
@@ -55,6 +57,7 @@ export class RegisterService {
                   el.innerHTML += arr['ConfirmPassword'] + '<br/>';
                 }
               }break;
+              case 500:
               case 0: this.router.navigate(['/server-error']); break;
             }
         },

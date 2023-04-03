@@ -14,8 +14,12 @@
     },
 
     "slider": {
-        "title1": "Hotel Booking System",
-        "title2": "Some representative placeholder content for the first slide."
+        "title1": "Ощутите роскошь на кончиках ваших пальцев",
+         "subtitle1": "Забронируйте следующий отель у нас",
+         "title2": "Поднимите уровень своего путешествия",
+         "subtitle2": "Найдите отель своей мечты в нашей системе бронирования",
+         "title3": "Откройте для себя лучшие отели мира",
+         "subtitle3": "Забронируйте следующий отдых у нас"
     },
 
     "titles": {

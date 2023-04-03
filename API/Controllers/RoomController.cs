@@ -28,5 +28,19 @@ namespace API.Controllers
             var model = await _roomService.GetByIdAsync(id);
             return Ok(model);
         }
+
+        [HttpGet("check")]
+        public async Task<IActionResult> Check(string startDate, string endDate, int guestsCount)
+        {
+            try
+            {
+                var result = await _roomService.CheckAsync(startDate, endDate, guestsCount);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

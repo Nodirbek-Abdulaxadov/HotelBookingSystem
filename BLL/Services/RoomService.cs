@@ -20,8 +20,10 @@ namespace BLL.Services
             {
                 room.RoomTypeId = (await _unitOfWork.RoomTypes.GetAllAsync()).First().Id;
             }
-            
-            var model = await _unitOfWork.Rooms.AddAsync((Room)room);
+            var rom = (Room)room;
+            rom.OrderId = (await _unitOfWork.Orders.GetAllAsync())
+                           .First().Id;
+            var model = await _unitOfWork.Rooms.AddAsync(rom);
             await _unitOfWork.SaveAsync();
             var type = await _unitOfWork.RoomTypes.GetByIdAsync(room.RoomTypeId);
             model.RoomType = type;
@@ -33,6 +35,39 @@ namespace BLL.Services
         {
             var rooms = await _unitOfWork.Rooms.GetAllWithRoomTypesAsync();
             var exist = rooms.Any(r => r.RoomType.Id == roomTypeId);
+            return exist;
+        }
+
+        public async Task<bool> CheckAsync(string startDate, string endDate, int guestsCount)
+        {
+            var start = DateOnly.Parse(startDate);
+            var end = DateOnly.Parse(endDate);
+            if (start < DateOnly.Parse(DateTime.Now.ToShortDateString())
+                || start > end)
+            {
+                return false;
+            }
+
+            var roomTypes = await _unitOfWork.RoomTypes.GetAllAsync();
+            var rooms = (await _unitOfWork.Rooms.GetAllWithRoomTypesAsync())
+                            .Where(r => roomTypes.FirstOrDefault(rt => rt.Id == r.RoomType.Id)
+                            .Capacity >= guestsCount)
+                            .ToList();
+
+            var exist = rooms.Any(r => r.Status == RoomStatus.Empty);
+
+            var busyRooms = rooms.Where(r => r.Status is RoomStatus.Busy or RoomStatus.Ordered)
+                                    .ToList();
+            var orders = await _unitOfWork.Orders.GetAllAsync();
+            foreach (var room in busyRooms)
+            {
+                if (orders.Any(o => DateOnly.Parse(o.EndDate) < DateOnly.Parse(startDate) &&
+                                    o.OrderStatus is OrderStatus.Active or OrderStatus.Confirmed))
+                {
+                    return true;
+                }
+            }
+
             return exist;
         }
 

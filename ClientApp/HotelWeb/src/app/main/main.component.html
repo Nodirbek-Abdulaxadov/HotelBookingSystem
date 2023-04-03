@@ -8,8 +8,8 @@
       <div class="carousel-caption d-none d-md-block">
         <div class="bg-dark"></div>
         <div class="d-inline">
-          <h1>Hotel Booking System</h1>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h1>{{'slider.title1' | translate}}</h1>
+          <p>{{'slider.subtitle1' | translate}}</p>
         </div>
       </div>
     </div>
@@ -18,8 +18,8 @@
       <div class="carousel-caption d-none d-md-block">
         <div class="bg-dark"></div>
         <div class="d-inline">
-          <h1>Hotel Booking System</h1>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h1>{{'slider.title2' | translate}}</h1>
+          <p>{{'slider.subtitle2' | translate}}</p>
         </div>
       </div>
     </div>
@@ -28,8 +28,8 @@
       <div class="carousel-caption d-none d-md-block">
         <div class="bg-dark"></div>
         <div class="d-inline">
-          <h1>Hotel Booking System</h1>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h1>{{'slider.title3' | translate}}</h1>
+          <p>{{'slider.subtitle3' | translate}}</p>
         </div>
       </div>
     </div>
@@ -54,7 +54,49 @@
   </button>
 </div>
 
-<div class="container">
+<section class="py-5">
+  <form [formGroup]="checkForm" (submit)="submitCheck()">
+    <div class="container contact">
+      <h2 class="text-center mb-5">Check Room Availability</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="checkIn">Check-in</label>
+            <input type="date" class="form-control" id="checkIn" formControlName="startDate">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="checkOut">Check-out</label>
+            <input type="date" class="form-control" id="checkOut" formControlName="endDate">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="guests">Guests</label>
+            <input type="number" class="form-control" id="guests" min="1" formControlName="guestCount">
+          </div>
+        </div>
+        <div class="col-md-3 pb-3">
+          <button type="submit" class="btn btn-primary btn-block my-3">Check Availability</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-success d-none" id="availability-alert">
+            <strong>Room Available!</strong> We have a room available for the dates you selected.
+          </div>
+          <div class="alert alert-danger d-none" id="unavailability-alert">
+            <strong>Sorry!</strong> We do not have any rooms available for the dates you selected.
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<div class="container my-5">
   <h2 class="text-center mt-5 mb-2">{{'titles.explore' | translate}}</h2>
   <div class="container">
     <hr class="mb-5" />
@@ -74,3 +116,59 @@
     </div>
   </div>
 </div>
+
+<div class="bg-light py-4">
+  <div class="container my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center my-5">About Our Hotel Booking System</h2>
+            <p>At our hotel booking system, we understand that finding the perfect hotel for your next trip can be a daunting task. That's why we've made it our mission to simplify the process and help you find the perfect hotel for your needs. Our user-friendly interface allows you to search for hotels by location, price, amenities, and more, making it easy to find the perfect hotel for your budget and preferences.</p>
+            <p>In addition to our easy-to-use search function, we also offer a wide selection of hotels to choose from. From budget-friendly options to luxury resorts, we have something for everyone. Plus, with our secure booking system, you can book your hotel stay with confidence, knowing that your personal information is protected.</p>
+            <p>At our hotel booking system, we strive to provide excellent customer service and support. If you have any questions or concerns, our customer service team is available 24/7 to assist you. So why wait? Start planning your next trip and book your hotel stay with us today!</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="contact-div py-5">
+  <div class="container contact">
+    <h2 class="text-center mb-5">Contact Us</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group mb-3">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group mb-3">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <i class="fas fa-envelope fa-3x mb-3"></i>
+          <h4 class="my-3">Email Us</h4>
+          <p>info@hotelbookingsystem.com</p>
+        </div>
+        <div class="text-center">
+          <i class="fas fa-phone fa-3x mb-3"></i>
+          <h4 class="my-3">Call Us</h4>
+          <p>+1 (555) 555-5555</p>
+        </div>
+        <div class="text-center">
+          <i class="fas fa-map-marker-alt fa-3x mb-3"></i>
+          <h4 class="my-3">Visit Us</h4>
+          <p>123 Main St, Anytown USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

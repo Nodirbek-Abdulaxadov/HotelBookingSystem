@@ -1,31 +1,45 @@
 ﻿@{
     ViewBag.Title = "All orders page";
 }
-@model IEnumerable<ViewOrderDto>
+@model OrdersViewModel
 
 <div class="container grid px-6 mx-auto">
 
     <div class="flex items-center justify-between">
         <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-            Pending rooms table
+            All orders table
         </h4>
     </div>
+
+    <div class="flex justify-center">
+      <div class="mb-3 xl:w-96">
+        <form class="flex justify-between input-group relative items-stretch w-full mb-4" asp-area="admin" asp-controller="orders" asp-action="index">
+            <input asp-for="SearchText" type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+            <button type="submit" class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                </svg>
+            </button>
+         </form>
+      </div>
+    </div>
+
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
         <div class="w-full overflow-x-auto">
             <table class="w-full table-fixed">
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3" style="width: 5% !important;">Id</th>
-                        <th class="px-4 py-3 text-left" style="width: 30% !important;">Full Name</th>
+                        <th class="px-4 py-3 text-left" style="width: 25% !important;">Full Name</th>
                         <th class="px-4 py-3" style="width: 15% !important;">StartDate</th>
                         <th class="px-4 py-3" style="width: 15% !important;">EndDate</th>
                         <th class="px-4 py-3" style="width: 10% !important;">Price</th>
                         <th class="px-4 py-3" style="width: 10% !important;">Status</th>
-                        <th class="px-4 py-3" style="width: 25% !important;">Actions</th>
+                        <th class="px-4 py-3" style="width: 30% !important;">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    @if (Model is null || Model.ToList().Count == 0)
+                    @if (Model is null || Model.Orders.ToList().Count == 0)
                     {
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3" colspan="7">
@@ -35,7 +49,7 @@
                     }
                     else
                     {
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.Orders)
                         {
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3">
@@ -47,9 +61,16 @@
                                 <th class="px-4 py-3">@item.TotalPrice</th>
                                 <th class="px-4 py-3">@item.Status</th>
                                 <td class="px-4 py-3">
-                                    <div class="flex items-center space-x-4 text-sm">
-                                        <a asp-area="admin" asp-controller="orders" asp-action="accept" asp-route-orderId="@item.Id" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Confirm</a>
-                                        <a asp-area="admin" asp-controller="orders" asp-action="decline" asp-route-orderId="@item.Id" onclick="return confirm('Are you sure decline this order?');" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Decline</a>
+                                    <div class="flex items-center buttons space-x-4 text-sm">
+                                        <a asp-area="admin" asp-controller="orders" asp-action="accept" asp-route-orderId="@item.Id" 
+                                            class="inline-block px-6 py-2.5 bg-lime-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-lime-600 hover:shadow-lg focus:bg-lime-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-500 active:shadow-lg transition duration-150 ease-in-out"
+                                            data-bs-toggle="tooltip" title="Add service"><i class="las la-plus-circle"></i>
+                                        </a>
+                                        <a asp-area="admin" asp-controller="orders" asp-action="accept" asp-route-orderId="@item.Id" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+                                            data-bs-toggle="tooltip" title="Edit order"><i class="las la-edit"></i></a>
+                                        <a asp-area="admin" asp-controller="orders" asp-action="decline" asp-route-orderId="@item.Id" onclick="return confirm('Are you sure decline this order?');" 
+                                            class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                                            data-bs-toggle="tooltip" title="Check out order" ><i class="las la-receipt"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -57,76 +78,6 @@
                     }
                 </tbody>
             </table>
-        </div>
-        <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-            <span class="flex items-center col-span-3">
-                Showing 1-10 of @Model.Count()
-            </span>
-            <span class="col-span-2"></span>
-            <!-- Pagination -->
-            <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                <nav aria-label="Table navigation">
-                    <ul class="inline-flex items-center">
-                        <li>
-                            <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                                    aria-label="Previous">
-                                <svg class="w-4 h-4 fill-current"
-                                     aria-hidden="true"
-                                     viewBox="0 0 20 20">
-                                    <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                          clip-rule="evenodd"
-                                          fill-rule="evenodd"></path>
-                                </svg>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                1
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                2
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                3
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                4
-                            </button>
-                        </li>
-                        <li>
-                            <span class="px-3 py-1">...</span>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                8
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                9
-                            </button>
-                        </li>
-                        <li>
-                            <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                                    aria-label="Next">
-                                <svg class="w-4 h-4 fill-current"
-                                     aria-hidden="true"
-                                     viewBox="0 0 20 20">
-                                    <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                          clip-rule="evenodd"
-                                          fill-rule="evenodd"></path>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
-            </span>
         </div>
     </div>
 </div>

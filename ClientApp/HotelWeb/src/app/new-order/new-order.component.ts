@@ -67,6 +67,10 @@ export class NewOrderComponent implements OnInit {
     el1.style.display = 'none';
     const el = document.getElementById('waiting')!;
     el.style.display = 'block';
+
+    this.orderForm.controls.totalPrice.setValue(this.price);
+    this.orderForm.controls.roomId.setValue(this.roomid);
+
     this.orderService.createOrder(this.orderForm.getRawValue(), this.roomid);
   }
 

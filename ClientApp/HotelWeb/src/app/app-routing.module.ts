@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MainComponent } from './main/main.component';
 import { NewOrderComponent } from './new-order/new-order.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { OrdersComponent } from './orders/orders.component';
 import { RoomComponent } from './room/room.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'rooms/:roomId', component: RoomComponent},
   {path: 'rooms', component: RoomsComponent},
+  {path: 'orders', component: OrdersComponent},
   {path: 'new-order/:roomId', component: NewOrderComponent},
   {path: "server-error", component: ServerErrorComponent},
   {path: '**', pathMatch: 'full', component: NotFoundComponent}

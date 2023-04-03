@@ -14,8 +14,12 @@
     },
 
     "slider": {
-        "title1": "Hotel Booking System",
-        "title2": "Some representative placeholder content for the first slide."
+        "title1": "Hashamatni barmoqlaringiz uchida his eting",
+        "subtitle1": "Keyingi mehmonxonangizni bron qiling, biz bilan qoling",
+        "title2": "Sayohatingizni boshlang",
+        "subtitle2": "O'z orzuingizdagi mehmonxonani - bron qilish tizimimizda toping",
+        "title3": "Eng yaxshi mehmonxonalarni kashf eting",
+        "subtitle3": "Keyingi turar joyingizni biz bilan band qiling"
     },
 
     "titles": {

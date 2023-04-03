@@ -14,8 +14,12 @@
     },
 
     "slider": {
-        "title1": "Hotel Booking System",
-        "title2": "Some representative placeholder content for the first slide."
+        "title1": "Experience Luxury at Your Fingertips",
+        "subtitle1": "Book Your Next Hotel Stay with Us",
+        "title2": "Elevate Your Travel",
+        "subtitle2": "Find Your Dream Hotel on Our Booking System",
+        "title3": "Discover the Best Hotels in the World",
+        "subtitle3": "Book Your Next Stay with Us"
     },
 
     "titles": {

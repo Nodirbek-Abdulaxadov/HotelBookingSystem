@@ -25,11 +25,11 @@ namespace API.Areas.Admin.Controllers
             _roomService = roomService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(OrdersViewModel viewModel)
         {
             var listOfOrders = await _orderService.GetAllOrdersAsync();
             List<ViewOrderDto> orders = new();
-            foreach (var order in listOfOrders)
+            foreach (var order in listOfOrders.Where(o => o.OrderStatus != OrderStatus.Unknown))
             {
                 var guest = _userManager.Users.FirstOrDefault(i => i.Id == order.GuestId);
                 var type = await _typeService.GetByIdAsync(order.RoomTypeId);
@@ -46,7 +46,14 @@ namespace API.Areas.Admin.Controllers
                 });
             }
 
-            return View(orders);
+            if (!string.IsNullOrEmpty(viewModel.SearchText))
+            {
+                orders = orders.Where(i => i.FullName.ToLower().Contains(viewModel.SearchText.ToLower())).ToList();
+            }
+
+            viewModel.Orders = orders;
+            
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Pending()
