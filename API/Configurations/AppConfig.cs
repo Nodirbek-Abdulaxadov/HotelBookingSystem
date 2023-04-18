@@ -81,7 +81,7 @@ namespace API.Configurations
                 options.AddPolicy(
                   name: CORSOpenPolicy,
                   builder => {
-                      builder.WithOrigins("http://localhost:4200")
+                      builder.WithOrigins("https://hotel.1kb.uz/", "http://localhost:4200")
                       .AllowCredentials()
                       .AllowAnyHeader()
                       .AllowAnyMethod();
@@ -91,11 +91,8 @@ namespace API.Configurations
 
         public static void AddMiddlewares(this WebApplication app)
         {
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
             
             app.UseStaticFiles();
 
