@@ -11,5 +11,7 @@ namespace BLL.Interfaces
         Task<Order> ConfirmOrderAsync(int orderId);
         Task<Order> DeclineOrderAsync(int orderId);
         Task<Order> GetByIdAsync(int id);
+
+        Task AcceptOrderAsync(Order order, List<Room> rooms);
     }
 }

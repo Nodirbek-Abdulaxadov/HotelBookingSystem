@@ -14,6 +14,14 @@ namespace BLL.Services
             _unitOfWork = unitOfWork;
         }
 
+        public async Task AcceptOrderAsync(Order order, List<Room> rooms)
+        {
+            order.Rooms = rooms;
+            order.OrderStatus = OrderStatus.Confirmed;
+            await _unitOfWork.Orders.UpdateAsync(order);
+            await _unitOfWork.SaveAsync();
+        }
+
         public async Task<Order> ConfirmOrderAsync(int orderId)
         {
             var order = await _unitOfWork.Orders.GetByIdAsync(orderId);

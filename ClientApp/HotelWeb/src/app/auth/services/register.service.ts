@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Constants } from 'src/app/models/constan';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class RegisterService {
               private router: Router,
               private toastr: ToastrService) {}
 
-  baseUrl: string = 'https://localhost:44363/api/Authentication';
+  baseUrl: string =  Constants.BASE_URL + 'Authentication';
 
   register(form: any): void {
     var user = {

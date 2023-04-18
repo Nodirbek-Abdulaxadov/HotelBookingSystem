@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Constants } from '../models/constan';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class RoomService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl: string = "https://localhost:44363/api/roomtypes";
+  baseUrl: string =  Constants.BASE_URL + "roomtypes";
 
   languge: string = "";
 

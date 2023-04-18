@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Constants } from '../models/constan';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  baseUrl = "https://localhost:44363/api/orders/";
+  baseUrl = Constants.BASE_URL +  "orders/";
 
   constructor(private httpClient: HttpClient,
               private toastr: ToastrService,

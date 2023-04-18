@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Constants } from 'src/app/models/constan';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class LoginService {
               private router: Router,
               private toastr: ToastrService) { }
 
-  baseUrl: string = "https://localhost:44363/api/Authentication"
+  baseUrl: string = Constants.BASE_URL + "Authentication"
 
   loginUser(form: any): void {
       this.httpClient.post(this.baseUrl+'/login-user', form, {withCredentials: true}).subscribe(
