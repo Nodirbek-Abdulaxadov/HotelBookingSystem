@@ -82,9 +82,9 @@ namespace API.Configurations
                   name: CORSOpenPolicy,
                   builder => {
                       builder.WithOrigins("https://hotel.1kb.uz/", "http://localhost:4200")
-                      .AllowCredentials()
-                      .AllowAnyHeader()
-                      .AllowAnyMethod();
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials();
                   });
             });
         }
