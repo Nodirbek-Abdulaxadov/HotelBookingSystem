@@ -1,0 +1,88 @@
+{
+    "nav": {
+        "home": "Bosh sahifa",
+        "rooms": "Xonalar",
+        "about": "Biz haqimizda",
+        "contact": "Bog'lanish"
+    },
+
+    "auth": {
+        "login": "Kirish",
+        "register": "Ro'yxatdan o'tish",
+        "profile": "Mening profilim",
+        "logout": "Chiqish"
+    },
+
+    "slider": {
+        "title1": "Hashamatni barmoqlaringiz uchida his eting",
+        "subtitle1": "Keyingi mehmonxonangizni bron qiling, biz bilan qoling",
+        "title2": "Sayohatingizni boshlang",
+        "subtitle2": "O'z orzuingizdagi mehmonxonani - bron qilish tizimimizda toping",
+        "title3": "Eng yaxshi mehmonxonalarni kashf eting",
+        "subtitle3": "Keyingi turar joyingizni biz bilan band qiling"
+    },
+
+    "titles": {
+        "explore": "Xonalar ro'yxati",
+        "order": "Yangi buyurtma yaratish",
+        "login": "Mavjud profilingizga kiring",
+        "register": "Yangi profil yarating"
+    },
+
+    "password": {
+        "error": "Parol 8-15 ta belgidan iborat bo'lishi, unda kamida bitta kichik harf, bitta katta harf, bitta raqamli raqam va bitta maxsus belgi mavjud.",
+        "confirm": "Parollar mos emas!"
+    },
+
+    "email": "Email manzili noto'g'ri",
+
+    "login": {
+        "email": "Elektron pochta",
+        "emailp": "Elektron pochtangizni kiriting",
+        "password": "Parol",
+        "passwordp": "Parolingizni kiriting",
+        "register": "Yangi profil yarating"
+    },
+
+    "register": {
+        "fname": "Ism",
+        "fnamep": "Ismingizni kiriting",
+        "lname": "Familiya",
+        "lnamep": "Familiyangizni kiriting",
+        "phone": "Telefon raqam",
+        "phonep": "Telefon raqamingizni kiriting",
+        "email": "Elektron pochta",
+        "emailp": "Elektron pochtangizni kiriting",
+        "password": "Parol",
+        "passwordp": "Parolingizni kiriting",
+        "cpassword": "Tasdiqlash",
+        "cpasswordp": "Parolingizni tasdiqlang",
+        "login": "Mavjud profilingizga kiring"
+    },
+
+    "price": "Narxi",
+
+    "buttons": {
+        "more": "Batafsil ma'lumot",
+        "book": "Buyurtma berish",
+        "back": "Bosh sahifaga qaytish",
+        "cancel": "Bekor qilish",
+        "submit": "Yuborish"
+    },
+
+    "order": {
+        "title": "Yangi buyurtma yaratish",
+        "start": "Boshlanish sanasi",
+        "end": "Tugash sanasi",
+        "adults": "Kattalar soni",
+        "children": "Bolalar soni",
+        "add": "Qo'shimcha",
+        "price": "Jami narx",
+        "checking": "Mavjudligi tekshirilmoqda..."
+    },
+
+    "pages": {
+        "server": "Ichki server xatosi!",
+        "notfound": "Sahifa topilmadi"
+    }
+}
