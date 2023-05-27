@@ -57,37 +57,37 @@
 <section class="py-5">
   <form [formGroup]="checkForm" (submit)="submitCheck()">
     <div class="container contact">
-      <h2 class="text-center mb-5">Check Room Availability</h2>
+      <h2 class="text-center mb-5">Tezkor tekshirish</h2>
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
-            <label for="checkIn">Check-in</label>
+            <label for="checkIn">Kirish sanasi</label>
             <input type="date" class="form-control" id="checkIn" formControlName="startDate">
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <label for="checkOut">Check-out</label>
+            <label for="checkOut">Chiqish sanasi</label>
             <input type="date" class="form-control" id="checkOut" formControlName="endDate">
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <label for="guests">Guests</label>
+            <label for="guests">Mehmonlar soni</label>
             <input type="number" class="form-control" id="guests" min="1" formControlName="guestCount">
           </div>
         </div>
         <div class="col-md-3 pb-3">
-          <button type="submit" class="btn btn-primary btn-block my-3">Check Availability</button>
+          <button type="submit" class="btn btn-primary btn-block my-3">Tekshirish</button>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="alert alert-success d-none" id="availability-alert">
-            <strong>Room Available!</strong> We have a room available for the dates you selected.
+            <strong>Xona mavjud!</strong> Sizning talablaringizga ko'ra bo'sh xonamiz mavjud!
           </div>
           <div class="alert alert-danger d-none" id="unavailability-alert">
-            <strong>Sorry!</strong> We do not have any rooms available for the dates you selected.
+            <strong>Kechirasiz!</strong> Siz tanlagan muddat oralig'ida bo'sh xonalarimiz mavjud emas!
           </div>
         </div>
       </div>

@@ -51,7 +51,8 @@ namespace API.Configurations
             var tokenParameters = new TokenValidationParameters()
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:securityKey"])),
+                IssuerSigningKey = new SymmetricSecurityKey(
+                    Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:securityKey"])),
 
                 ValidateIssuer = true,
                 ValidIssuer = builder.Configuration["JwtSettings:Issuer"],

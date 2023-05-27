@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RoomTypeModel } from '../interfaces/RoomModel';
 import { RoomService } from '../room/room.service';
@@ -87,7 +87,6 @@ export class NewOrderComponent implements OnInit {
     this.diff = end.getDate() - start.getDate()
     
     if (this.diff > 0) {
-      //some
       this.price = this.price * this.diff;
     }
     else if (this.diff == 0) {
