@@ -1,0 +1,269 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\css\\tailwind.css",
+      "PackagePath": "staticwebassets\\css\\tailwind.css"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\css\\tailwind.output.css",
+      "PackagePath": "staticwebassets\\css\\tailwind.output.css"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\0e0933aa-71ff-4b71-80b8-191aa07dda02_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\0e0933aa-71ff-4b71-80b8-191aa07dda02_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\157b1b24-d737-4fba-b6a5-069f054e5669_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\157b1b24-d737-4fba-b6a5-069f054e5669_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\281a93b7-4506-49f3-956e-fa1d87ae4032_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\281a93b7-4506-49f3-956e-fa1d87ae4032_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\29176e1f-b38e-46e5-8c57-e072a9e60202_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\29176e1f-b38e-46e5-8c57-e072a9e60202_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\2da14182-8352-4950-936f-7d826b1819e3_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\2da14182-8352-4950-936f-7d826b1819e3_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\32ad2e1b-734c-42c9-97d0-a78b7126de51_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\32ad2e1b-734c-42c9-97d0-a78b7126de51_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\35d8deee-ab33-417b-9388-e951480c4dc3_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\35d8deee-ab33-417b-9388-e951480c4dc3_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\35f0150f-6c30-4457-be15-99021367fa18_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\35f0150f-6c30-4457-be15-99021367fa18_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\3906a2a5-5183-46ee-9a75-a286d245dc29_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\3906a2a5-5183-46ee-9a75-a286d245dc29_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\43b8efdd-b9f6-4f72-9551-3ffa62046765_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\43b8efdd-b9f6-4f72-9551-3ffa62046765_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\43d1d659-9fdc-482b-89df-60f436cb5537_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\43d1d659-9fdc-482b-89df-60f436cb5537_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\4aa47f84-256f-416f-b56b-076017f1a797_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\4aa47f84-256f-416f-b56b-076017f1a797_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\4d62e6d1-d828-475f-8645-c9b50194eab5_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\4d62e6d1-d828-475f-8645-c9b50194eab5_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\535059fb-cf60-4e4d-a90c-ffafcbde84bf_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\535059fb-cf60-4e4d-a90c-ffafcbde84bf_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\5a7fc737-ba74-452d-80cc-d6d8e0b955b0_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\5a7fc737-ba74-452d-80cc-d6d8e0b955b0_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\6796b5ec-cbbb-4c0a-97b8-e15eaaef1da4_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\6796b5ec-cbbb-4c0a-97b8-e15eaaef1da4_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\6798be4f-4bff-4ca7-aff4-b8f752228909_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\6798be4f-4bff-4ca7-aff4-b8f752228909_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\6a194923-0e4f-48a9-8c79-b854721a104d_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\6a194923-0e4f-48a9-8c79-b854721a104d_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\765f2bfc-7033-4994-8965-dc104a162676_1620be89-2a87-4555-a2d7-15e28b0a21d0.__CR0,0,300,300_PT0_SX300_V1___.jpg",
+      "PackagePath": "staticwebassets\\images\\765f2bfc-7033-4994-8965-dc104a162676_1620be89-2a87-4555-a2d7-15e28b0a21d0.__CR0,0,300,300_PT0_SX300_V1___.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\8b2f9407-5e05-42b1-b2eb-09d27afe2eec_0b777f2f-98c8-4188-be99-dbc136c783ae_BNMAY19_Room3.jpg",
+      "PackagePath": "staticwebassets\\images\\8b2f9407-5e05-42b1-b2eb-09d27afe2eec_0b777f2f-98c8-4188-be99-dbc136c783ae_BNMAY19_Room3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\8c085a94-0ed8-4053-aa94-28eae39057cd_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\8c085a94-0ed8-4053-aa94-28eae39057cd_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\8e4ebefe-0d4a-418a-a629-05c05cab115e_123.jpg",
+      "PackagePath": "staticwebassets\\images\\8e4ebefe-0d4a-418a-a629-05c05cab115e_123.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\99efe345-7da0-45b8-8923-b1e49dabd53f_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\99efe345-7da0-45b8-8923-b1e49dabd53f_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\a22a0ce3-fed4-4e82-9983-0f16ddda8d62_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\a22a0ce3-fed4-4e82-9983-0f16ddda8d62_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\a2d20681-a4a0-4046-9a85-f3e72dea98ba_181738_dcs_7247.jpg",
+      "PackagePath": "staticwebassets\\images\\a2d20681-a4a0-4046-9a85-f3e72dea98ba_181738_dcs_7247.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\admin.png",
+      "PackagePath": "staticwebassets\\images\\admin.png"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\b1ad87ad-f540-4663-bba3-9caac6feca79_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\b1ad87ad-f540-4663-bba3-9caac6feca79_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\b543df7e-14cb-4d1c-8c7d-417383280b82_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\b543df7e-14cb-4d1c-8c7d-417383280b82_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\bb2bf299-7d76-4b44-a68e-bf1c22ab3264_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\bb2bf299-7d76-4b44-a68e-bf1c22ab3264_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\bb9c12ff-da13-4fb4-91f4-4dd77df208c4_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\bb9c12ff-da13-4fb4-91f4-4dd77df208c4_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\bc4f7f0a-ec64-4e04-9815-dae1758a2205_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\bc4f7f0a-ec64-4e04-9815-dae1758a2205_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\be166eb4-3565-4639-819a-252b2bdd46e1_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\be166eb4-3565-4639-819a-252b2bdd46e1_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\becb5eeb-c5f0-44fe-96cf-a1d93fea16d6_f258ed4f-49ed-40d7-92e8-392dd5bbc7f4.__CR130,0,2111,2111_PT0_SX300_V1___.jpg",
+      "PackagePath": "staticwebassets\\images\\becb5eeb-c5f0-44fe-96cf-a1d93fea16d6_f258ed4f-49ed-40d7-92e8-392dd5bbc7f4.__CR130,0,2111,2111_PT0_SX300_V1___.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\c2db969e-ac14-44f8-86ab-e41fc2b8e540_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\c2db969e-ac14-44f8-86ab-e41fc2b8e540_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\c726f224-fd27-46e9-9214-bf507a91681f_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg",
+      "PackagePath": "staticwebassets\\images\\c726f224-fd27-46e9-9214-bf507a91681f_76a9b16d-906f-4754-9c60-3d5d0be7ea69_room5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\caf9963c-8cc7-4c8c-bcf7-3d4d0313ed8c_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\caf9963c-8cc7-4c8c-bcf7-3d4d0313ed8c_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\ccea7ac7-0e6e-48f9-b734-95d2e9af7521_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\ccea7ac7-0e6e-48f9-b734-95d2e9af7521_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\d045b3d5-e091-46b5-ba13-b6cd48ab4694_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\d045b3d5-e091-46b5-ba13-b6cd48ab4694_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\d6fc6d04-b1f1-4ecc-8c7c-89a665491bf6_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\d6fc6d04-b1f1-4ecc-8c7c-89a665491bf6_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\e3908ce8-3767-40b5-b50b-fe6f0319a9e0_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\e3908ce8-3767-40b5-b50b-fe6f0319a9e0_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\e65ef8c3-1014-4f50-9460-aa95a9fe36b7_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg",
+      "PackagePath": "staticwebassets\\images\\e65ef8c3-1014-4f50-9460-aa95a9fe36b7_780c5457-84f6-476e-b103-5c93c6ee4b1f_room4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\e76feda2-045b-4057-9ae1-d44d237feba9_11925411-32e6-4046-a991-ca8871f500af_room6.jpg",
+      "PackagePath": "staticwebassets\\images\\e76feda2-045b-4057-9ae1-d44d237feba9_11925411-32e6-4046-a991-ca8871f500af_room6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\ea2504fb-cca1-4f71-bf88-a78f88222f8b_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\ea2504fb-cca1-4f71-bf88-a78f88222f8b_a22cb690-c441-4330-8434-251de8bf57c8_gallery1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\f69ae26e-db92-4b9d-a472-43250d35101b_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\f69ae26e-db92-4b9d-a472-43250d35101b_ba4b2caa-f7e4-4437-9a42-e6667d483d03_gallery3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\images\\fcb3720f-7f9a-4b8c-97f2-53e751b02d59_f258ed4f-49ed-40d7-92e8-392dd5bbc7f4.__CR130,0,2111,2111_PT0_SX300_V1___.jpg",
+      "PackagePath": "staticwebassets\\images\\fcb3720f-7f9a-4b8c-97f2-53e751b02d59_f258ed4f-49ed-40d7-92e8-392dd5bbc7f4.__CR130,0,2111,2111_PT0_SX300_V1___.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\create-account-office-dark.jpeg",
+      "PackagePath": "staticwebassets\\img\\create-account-office-dark.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\create-account-office.jpeg",
+      "PackagePath": "staticwebassets\\img\\create-account-office.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\dashboard.png",
+      "PackagePath": "staticwebassets\\img\\dashboard.png"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\forgot-password-office-dark.jpeg",
+      "PackagePath": "staticwebassets\\img\\forgot-password-office-dark.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\forgot-password-office.jpeg",
+      "PackagePath": "staticwebassets\\img\\forgot-password-office.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\github.svg",
+      "PackagePath": "staticwebassets\\img\\github.svg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\login-office-dark.jpeg",
+      "PackagePath": "staticwebassets\\img\\login-office-dark.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\login-office.jpeg",
+      "PackagePath": "staticwebassets\\img\\login-office.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\img\\twitter.svg",
+      "PackagePath": "staticwebassets\\img\\twitter.svg"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\js\\charts-bars.js",
+      "PackagePath": "staticwebassets\\js\\charts-bars.js"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\js\\charts-lines.js",
+      "PackagePath": "staticwebassets\\js\\charts-lines.js"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\js\\charts-pie.js",
+      "PackagePath": "staticwebassets\\js\\charts-pie.js"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\js\\focus-trap.js",
+      "PackagePath": "staticwebassets\\js\\focus-trap.js"
+    },
+    {
+      "Id": "C:\\Users\\Nodirbek\\Desktop\\HotelBookingSystem\\API\\wwwroot\\js\\init-alpine.js",
+      "PackagePath": "staticwebassets\\js\\init-alpine.js"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
