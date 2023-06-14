@@ -10,6 +10,7 @@ namespace BLL.DTOs.Orders
         }
         public IEnumerable<ViewOrderDto> Orders { get; set; }
         public string SearchText { get; set; } = string.Empty;
+        public string Type { get; set; }
     }
 
     public class ViewOrderDto

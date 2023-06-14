@@ -54,7 +54,10 @@ namespace BLL.Services
         }
 
         public async Task<IEnumerable<Order>> GetAllOrdersAsync()
-            => await _unitOfWork.Orders.GetAllAsync();
+        {
+            var orders = await _unitOfWork.Orders.GetAllAsync();
+            return orders.OrderByDescending(o => o.Id).ToList();
+        }
 
         public async Task<Order> GetByIdAsync(int id)
             => await _unitOfWork.Orders.GetByIdAsync(id);

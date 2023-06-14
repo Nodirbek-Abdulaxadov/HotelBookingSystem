@@ -15,24 +15,24 @@ namespace API.Controllers
             _roomService = roomService;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAll()
-        //{
-        //    var list = await _roomService.GetAllAsync();
-        //    return Ok(list);
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var list = await _roomService.GetAllAsync();
+            return Ok(list);
+        }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> Get(int roomId)
-        //{
-        //    if (!(await ExistRoom(roomId)))
-        //    {
-        //        return NotFound("This room could not match!");
-        //    }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int roomId)
+        {
+            if (!(await ExistRoom(roomId)))
+            {
+                return NotFound("This room could not match!");
+            }
 
-        //    var model = await _roomService.GetByIdAsync(roomId);
-        //    return Ok(model);
-        //}
+            var model = await _roomService.GetByIdAsync(roomId);
+            return Ok(model);
+        }
 
         [HttpGet("{language}")]
         public async Task<IActionResult> GetByLanguage(string language)
@@ -53,44 +53,42 @@ namespace API.Controllers
             return Ok(model);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Add([FromForm] AddRoomTypeDto room)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPost]
+        public async Task<IActionResult> Add([FromForm] AddRoomTypeDto room)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var model = await _roomService.AddAsync(room);
-        //    return Ok(model);
-        //}
+            var model = await _roomService.AddAsync(room);
+            return Ok(model);
+        }
 
-        //[HttpPut]
-        //public async Task<IActionResult> Update([FromForm] UpdateRoomTypeDto room)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPut]
+        public async Task<IActionResult> Update([FromForm] UpdateRoomTypeDto room)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var model = await _roomService.UpdateAsync(room);
-        //    return Ok(model);
-        //}
+            var model = await _roomService.UpdateAsync(room);
+            return Ok(model);
+        }
 
-        //[HttpDelete("{roomId}")]
-        //public async Task<IActionResult> Delete(int roomId)
-        //{
-        //    var room = await _roomService.GetByIdAsync(roomId);
-        //    if (room == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpDelete("{roomId}")]
+        public async Task<IActionResult> Delete(int roomId)
+        {
+            var room = await _roomService.GetByIdAsync(roomId);
+            if (room == null)
+            {
+                return NotFound();
+            }
 
-        //    await _roomService.RemoveAsync(roomId);
-        //    return Ok();
-        //}
-
-
+            await _roomService.RemoveAsync(roomId);
+            return Ok();
+        }
 
         private async Task<bool> ExistRoom(int roomId)
         {

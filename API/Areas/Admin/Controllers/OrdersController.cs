@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs.Orders;
 using BLL.Interfaces;
+using Datalayer.Interfaces;
 using Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,16 +14,19 @@ namespace API.Areas.Admin.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IRoomTypeService _typeService;
         private readonly IRoomService _roomService;
+        private readonly IUnitOfWork _unitOfWork;
 
         public OrdersController(IOrderService orderService,
                                 UserManager<User> userManager,
                                 IRoomTypeService typeService,
-                                IRoomService roomService)
+                                IRoomService roomService,
+                                IUnitOfWork unitOfWork)
         {
             _orderService = orderService;
             _userManager = userManager;
             _typeService = typeService;
             _roomService = roomService;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IActionResult> Index(OrdersViewModel viewModel)
@@ -53,6 +57,106 @@ namespace API.Areas.Admin.Controllers
 
             viewModel.Orders = orders;
             
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> Active(OrdersViewModel viewModel)
+        {
+            var listOfOrders = await _orderService.GetAllOrdersAsync();
+            List<ViewOrderDto> orders = new();
+            foreach (var order in listOfOrders.Where(o => o.OrderStatus == OrderStatus.Active))
+            {
+                var guest = _userManager.Users.FirstOrDefault(i => i.Id == order.GuestId);
+                var type = await _typeService.GetByIdAsync(order.RoomTypeId);
+
+                orders.Add(new ViewOrderDto
+                {
+                    Id = order.Id,
+                    FullName = $"{guest.FirstName} {guest.LastName}",
+                    StartDate = order.StartDate,
+                    EndDate = order.EndDate,
+                    TotalPrice = order.TotalPrice,
+                    RoomType = type,
+                    Status = order.OrderStatus.ToString()
+                });
+            }
+
+            if (!string.IsNullOrEmpty(viewModel.SearchText))
+            {
+                orders = orders.Where(i => i.FullName.ToLower().Contains(viewModel.SearchText.ToLower())).ToList();
+            }
+
+            viewModel.Orders = orders;
+
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> Activate(int orderId)
+        {
+            var order = await _orderService.GetByIdAsync(orderId);
+            order.OrderStatus = OrderStatus.Active;
+            await _unitOfWork.Orders.UpdateAsync(order);
+            await _unitOfWork.SaveAsync();
+
+            return RedirectToAction("index", "orders");
+        }
+
+        public async Task<IActionResult> Details(int orderId)
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Filter(string type)
+        {
+            var listOfOrders = await _orderService.GetAllOrdersAsync();
+            List<ViewOrderDto> orders = new();
+            foreach (var order in listOfOrders.Where(o => o.OrderStatus != OrderStatus.Unknown))
+            {
+                var guest = _userManager.Users.FirstOrDefault(i => i.Id == order.GuestId);
+                var roomType = await _typeService.GetByIdAsync(order.RoomTypeId);
+
+                orders.Add(new ViewOrderDto
+                {
+                    Id = order.Id,
+                    FullName = $"{guest.FirstName} {guest.LastName}",
+                    StartDate = order.StartDate,
+                    EndDate = order.EndDate,
+                    TotalPrice = order.TotalPrice,
+                    RoomType = roomType,
+                    Status = order.OrderStatus.ToString()
+                });
+            }
+            OrdersViewModel viewModel = new();
+            viewModel.Orders = orders;
+            viewModel.Type = type;
+            switch (type)
+            {
+                case "all":
+                    {
+                        return View(viewModel);
+                    }
+                case "waiting":
+                    {
+                        viewModel.Orders = viewModel.Orders.Where(o => o.Status == "Waiting");
+                        return View(viewModel);
+                    }
+                case "confirmed":
+                    {
+                        viewModel.Orders = viewModel.Orders.Where(o => o.Status == "Confirmed");
+                        return View(viewModel);
+                    }
+                case "declined":
+                    {
+                        viewModel.Orders = viewModel.Orders.Where(o => o.Status == "Declined");
+                        return View(viewModel);
+                    }
+                case "completed":
+                    {
+                        viewModel.Orders = viewModel.Orders.Where(o => o.Status == "Completed");
+                        return View(viewModel);
+                    }
+            }
+
             return View(viewModel);
         }
 
@@ -145,6 +249,11 @@ namespace API.Areas.Admin.Controllers
             };
 
             return model;
+        }
+
+        public IActionResult Checkout()
+        {
+            return View();
         }
 
         private async Task<AcceptOrderDto> GetViewModel(int orderId, string errorMessage)

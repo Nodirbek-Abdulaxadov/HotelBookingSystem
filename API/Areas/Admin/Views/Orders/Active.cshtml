@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "All orders page";
+    ViewBag.Title = "Active orders page";
 }
 @model OrdersViewModel
 
@@ -7,7 +7,7 @@
 
     <div class="flex items-center justify-between">
         <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-            All orders table
+            Active orders table
         </h4>
     </div>
     <div class="flex justify-between">
@@ -72,15 +72,17 @@
                                 <th class="px-4 py-3">@item.Status</th>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center buttons space-x-4 text-sm">
-                                        <a asp-area="admin" asp-controller="orders" asp-action="accept" asp-route-orderId="@item.Id" class="inline-block px-5 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-700 active:shadow-lg transition duration-150 ease-in-out"
-                                   data-bs-toggle="tooltip" title="Edit order"><i class="las la-edit"></i></a>
-                                    @if (item.Status == "Confirmed")
-                                    {
-                                        <a onclick="return confirm('Are you sure activate this order?');" asp-area="admin" style="font-size:18px;" asp-controller="orders" asp-action="activate" asp-route-orderId="@item.Id" class="inline-block px-5 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
-                               data-bs-toggle="tooltip" title="Activate order"><i class="las la-check-circle"></i></a>
-                                    }
+                                        <a asp-area="admin" asp-controller="orders" asp-action="details" asp-route-orderId="@item.Id" asp-route-orderId="@item.Id" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+                                   data-bs-toggle="tooltip" title="View order"><i class="las la-eye"></i></a>
+                                        <a asp-area="admin" asp-controller="service" asp-action="add" asp-route-orderId="@item.Id"
+                                   class="inline-block px-6 py-2.5 bg-lime-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-lime-600 hover:shadow-lg focus:bg-lime-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-500 active:shadow-lg transition duration-150 ease-in-out"
+                                   data-bs-toggle="tooltip" title="Add service">
+                                            <i class="las la-plus-circle"></i>
+                                        </a>
+                                        <a asp-area="admin" asp-controller="orders" asp-action="decline" asp-route-orderId="@item.Id" onclick="return confirm('Are you sure decline this order?');"
+                                   class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                                   data-bs-toggle="tooltip" title="Check out order"><i class="las la-receipt"></i></a>
                                     </div>
-                                    
                                 </td>
                             </tr>
                         }

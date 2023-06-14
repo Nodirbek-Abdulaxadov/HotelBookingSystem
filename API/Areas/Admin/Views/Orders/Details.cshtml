@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Order details page";
+}
+
+<section>
+    <h1 style="margin-left: 30px !important; font-size: 18px !important;" class="mb-2 font-semibold text-gray-600 dark:text-gray-300">Order details</h1>
+
+    <div class="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2">
+        <div class="bg-gray-50 py-12 md:py-24" style="margin-right: 40px !important;">
+            <div class="mx-auto max-w-lg space-y-8 px-4 lg:px-8">
+                <div>
+                    <div class="flow-root">
+                        <div class="flex justify-between my-1">
+                            <p>StartDate:</p>
+                            <p>mm/dd/yyyy</p>
+                        </div>
+                        <div class="flex justify-between my-1">
+                            <p>EndDate:</p>
+                            <p>mm/dd/yyyy</p>
+                        </div>
+                        <div class="flex justify-between my-1">
+                            <p>Adults:</p>
+                            <p>mm/dd/yyyy</p>
+                        </div>
+                        <div class="flex justify-between my-1">
+                            <p>Children:</p>
+                            <p>mm/dd/yyyy</p>
+                        </div>
+                        <hr />
+                        <div class="flex justify-between my-1">
+                            <p>Billings for room:</p>
+                            <p>$ 2323333</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-root mt-3 mb-5">
+                        <h2>Services</h2>
+                        <div class="flex justify-between my-1">
+                            <p>Name:</p>
+                            <p>Nimadir</p>
+                            <p>Price:</p>
+                            <p>$1200</p>
+                        </div>
+                        <div class="flex justify-between my-1">
+                            <p>Name:</p>
+                            <p>Nimadksjdbfkdsjbfk jbdkfjsbkfjdbskjfbskjbfskir</p>
+                            <p>Price:</p>
+                            <p>$1200</p>
+                        </div>
+                        <hr />
+                        <div class="flex justify-between my-1">
+                            <p>Billings for services:</p>
+                            <p>$ 2323333</p>
+                        </div>
+                    </div>
+
+
+                    <hr/>
+                    <div class="flex justify-between">
+                        <p>Total:</p>
+                        <p>$ 2323333</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white py-12 md:py-24">
+            <div class="mx-auto max-w-lg px-4 lg:px-8">
+                <h2 class="mb-3">Guest informations</h2>
+                <form class="grid grid-cols-6 gap-4">
+                    <div class="col-span-3">
+                        <label for="FirstName"
+                               class="block text-xs font-medium text-gray-700">
+                            First Name
+                        </label>
+
+                        <input type="text"
+                               id="FirstName"
+                               class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" />
+                    </div>
+
+                    <div class="col-span-3">
+                        <label for="LastName"
+                               class="block text-xs font-medium text-gray-700">
+                            Last Name
+                        </label>
+
+                        <input type="text"
+                               id="LastName"
+                               class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" />
+                    </div>
+
+                    <div class="col-span-6">
+                        <label for="Email" class="block text-xs font-medium text-gray-700">
+                            Email
+                        </label>
+
+                        <input type="email"
+                               id="Email"
+                               class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" />
+                    </div>
+
+                    <div class="col-span-6">
+                        <label for="Phone" class="block text-xs font-medium text-gray-700">
+                            Phone
+                        </label>
+
+                        <input type="tel"
+                               id="Phone"
+                               class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" />
+                    </div>
+
+                    <div class="col-span-6">
+                        <button class="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg">
+                            Checkout
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
