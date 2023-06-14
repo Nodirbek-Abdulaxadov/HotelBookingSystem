@@ -7,7 +7,10 @@ namespace Datalayer.Context
     public class HotelDbContext : IdentityDbContext<User>
     {
         public HotelDbContext(DbContextOptions<HotelDbContext> options)
-            : base(options) { }
+            : base(options) 
+        { 
+            Database.EnsureCreated();
+        }
 
         public DbSet<RoomType> RoomTypes { get; set; }
         public DbSet<Room> Rooms { get; set; }

@@ -112,6 +112,15 @@ namespace API.Configurations
                 );
                 endpoints.MapControllers();
             });
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                var context = services.GetRequiredService<HotelDbContext>();
+                context.Database.Migrate();
+            }
+
             app.SeedRolesToDatabase().Wait();
 
             app.Run();
