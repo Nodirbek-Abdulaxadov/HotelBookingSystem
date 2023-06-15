@@ -113,13 +113,13 @@ namespace API.Configurations
                 endpoints.MapControllers();
             });
 
-            using (var scope = app.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
+            //using (var scope = app.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
 
-                var context = services.GetRequiredService<HotelDbContext>();
-                context.Database.Migrate();
-            }
+            //    var context = services.GetRequiredService<HotelDbContext>();
+            //    context.Database.Migrate();
+            //}
 
             app.SeedRolesToDatabase().Wait();
 
